@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8A1DDAD71D2608C7006BCCC6 /* PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DDAD61D2608C7006BCCC6 /* PhotoPickerViewController.swift */; };
+		8A2D95661D2CD1EE00ACC2CA /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2D95651D2CD1EE00ACC2CA /* testViewController.swift */; };
 		8A404E281D24B91B001EDA20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A404E271D24B91B001EDA20 /* AppDelegate.swift */; };
 		8A404E2F1D24B91B001EDA20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A404E2E1D24B91B001EDA20 /* Assets.xcassets */; };
 		8A404E321D24B91B001EDA20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A404E301D24B91B001EDA20 /* LaunchScreen.storyboard */; };
@@ -173,6 +174,7 @@
 
 /* Begin PBXFileReference section */
 		8A1DDAD61D2608C7006BCCC6 /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.swift; sourceTree = "<group>"; };
+		8A2D95651D2CD1EE00ACC2CA /* testViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
 		8A404E241D24B91A001EDA20 /* xbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A404E271D24B91B001EDA20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A404E2E1D24B91B001EDA20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -660,6 +662,7 @@
 			isa = PBXGroup;
 			children = (
 				8A404F601D25053F001EDA20 /* BookTitleView.swift */,
+				8A2D95651D2CD1EE00ACC2CA /* testViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -975,6 +978,7 @@
 				8A404F5F1D24F890001EDA20 /* GeneralFactory.swift in Sources */,
 				8A404E661D24C32C001EDA20 /* config.swift in Sources */,
 				8A404F6A1D25063A001EDA20 /* JVFloatLabeledTextField.m in Sources */,
+				8A2D95661D2CD1EE00ACC2CA /* testViewController.swift in Sources */,
 				8A404F611D25053F001EDA20 /* BookTitleView.swift in Sources */,
 				8A404E721D24C4F1001EDA20 /* pushViewController.swift in Sources */,
 				8A404F6C1D25063A001EDA20 /* NSString+TextDirectionality.m in Sources */,

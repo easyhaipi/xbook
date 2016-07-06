@@ -26,6 +26,7 @@ class BookTitleView: UIView {
     var delegate:BookTitleDelegate?
     
     
+    //  hhshshshshshshshshshshs
     
     override init(frame: CGRect) {
         super.init(frame:frame)
@@ -55,6 +56,8 @@ class BookTitleView: UIView {
         
         self.addSubview(self.BookName!)
         self.addSubview(self.BookEditor!)
+        
+       
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -62,6 +65,7 @@ class BookTitleView: UIView {
     }
   
     
+    //////
     
     func choiceCover() {
         self.delegate?.choiceCover!()
