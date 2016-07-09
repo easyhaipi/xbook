@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A1AFB771D30F48100FCD0B9 /* VPImageCropperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1AFB761D30F48100FCD0B9 /* VPImageCropperViewController.m */; };
 		8A1DDAD71D2608C7006BCCC6 /* PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DDAD61D2608C7006BCCC6 /* PhotoPickerViewController.swift */; };
 		8A2D95661D2CD1EE00ACC2CA /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2D95651D2CD1EE00ACC2CA /* testViewController.swift */; };
 		8A404E281D24B91B001EDA20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A404E271D24B91B001EDA20 /* AppDelegate.swift */; };
@@ -173,6 +174,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8A1AFB751D30F48100FCD0B9 /* VPImageCropperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPImageCropperViewController.h; sourceTree = "<group>"; };
+		8A1AFB761D30F48100FCD0B9 /* VPImageCropperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPImageCropperViewController.m; sourceTree = "<group>"; };
 		8A1DDAD61D2608C7006BCCC6 /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.swift; sourceTree = "<group>"; };
 		8A2D95651D2CD1EE00ACC2CA /* testViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
 		8A404E241D24B91A001EDA20 /* xbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -191,7 +194,7 @@
 		8A404E5E1D24C138001EDA20 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		8A404E601D24C140001EDA20 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		8A404E621D24C146001EDA20 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		8A404E641D24C25B001EDA20 /* bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = bridging.h; path = xbook/bridging.h; sourceTree = "<group>"; };
+		8A404E641D24C25B001EDA20 /* bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bridging.h; sourceTree = "<group>"; };
 		8A404E651D24C32C001EDA20 /* config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
 		8A404E6D1D24C4C1001EDA20 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		8A404E6F1D24C4D4001EDA20 /* rankViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rankViewController.swift; sourceTree = "<group>"; };
@@ -361,6 +364,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A1AFB741D30F48100FCD0B9 /* VPImageCropperViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8A1AFB751D30F48100FCD0B9 /* VPImageCropperViewController.h */,
+				8A1AFB761D30F48100FCD0B9 /* VPImageCropperViewController.m */,
+			);
+			path = VPImageCropperViewController;
+			sourceTree = "<group>";
+		};
 		8A404E1B1D24B91A001EDA20 = {
 			isa = PBXGroup;
 			children = (
@@ -401,6 +413,7 @@
 				8A404E2E1D24B91B001EDA20 /* Assets.xcassets */,
 				8A404E301D24B91B001EDA20 /* LaunchScreen.storyboard */,
 				8A404E331D24B91B001EDA20 /* Info.plist */,
+				8A404E641D24C25B001EDA20 /* bridging.h */,
 				8A404E651D24C32C001EDA20 /* config.swift */,
 			);
 			path = xbook;
@@ -429,7 +442,6 @@
 			children = (
 				8A404E781D24CC89001EDA20 /* Image */,
 				8A404E581D24C0FB001EDA20 /* release-v3.3.4 */,
-				8A404E641D24C25B001EDA20 /* bridging.h */,
 			);
 			name = leancloud;
 			sourceTree = "<group>";
@@ -685,6 +697,7 @@
 		8A404F621D25059B001EDA20 /* ThirdKit */ = {
 			isa = PBXGroup;
 			children = (
+				8A1AFB741D30F48100FCD0B9 /* VPImageCropperViewController */,
 				8A404F631D25063A001EDA20 /* JVFloatLabeledTextField */,
 			);
 			name = ThirdKit;
@@ -987,6 +1000,7 @@
 				8A404F6B1D25063A001EDA20 /* JVFloatLabeledTextView.m in Sources */,
 				8A404E6E1D24C4C1001EDA20 /* SearchViewController.swift in Sources */,
 				8A404E701D24C4D4001EDA20 /* rankViewController.swift in Sources */,
+				8A1AFB771D30F48100FCD0B9 /* VPImageCropperViewController.m in Sources */,
 				8A404E741D24C501001EDA20 /* circleViewController.swift in Sources */,
 				8A404F5C1D24F7AC001EDA20 /* pushNewBookViewController.swift in Sources */,
 				8A404E281D24B91B001EDA20 /* AppDelegate.swift in Sources */,

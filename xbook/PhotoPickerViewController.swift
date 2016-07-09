@@ -32,7 +32,7 @@ class PhotoPickerViewController: UIViewController,UINavigationControllerDelegate
         
         
         self.picker = UIImagePickerController()
-        self.picker.allowsEditing = false
+        self.picker.allowsEditing = false//自己来做截图
         self.picker.delegate = self
     }
     
@@ -100,10 +100,12 @@ class PhotoPickerViewController: UIViewController,UINavigationControllerDelegate
           let  alertView  = UIAlertController(title: "此机型无相机",message: nil,preferredStyle: .Alert)
             alertView.addAction(UIAlertAction(title: "关闭",style: .Cancel,handler: {(action) -> Void in
                 
-                
+                self.dismissViewControllerAnimated(true, completion: { 
+                    
+                })
             }))
             self.presentViewController(alertView, animated: true, completion: { 
-                
+             
             })
         }
         
@@ -111,9 +113,7 @@ class PhotoPickerViewController: UIViewController,UINavigationControllerDelegate
     
     func localPhoto() {
         self.picker.sourceType = .PhotoLibrary
-        
-        
-        
+
         self.presentViewController(self.picker, animated: true, completion: {
             
         })
@@ -122,14 +122,18 @@ class PhotoPickerViewController: UIViewController,UINavigationControllerDelegate
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         self.picker.dismissViewControllerAnimated(true) { 
-            
+            self.dismissViewControllerAnimated(true, completion: { 
+                
+            })
         }
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-       self.delegate?.getImageFromPicker(image)
+      
         self.picker.dismissViewControllerAnimated(true) {
-            
+            self.dismissViewControllerAnimated(true, completion: { 
+                 self.delegate?.getImageFromPicker(image)
+            })
         }
 
     }
