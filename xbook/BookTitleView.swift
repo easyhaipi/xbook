@@ -23,7 +23,7 @@ class BookTitleView: UIView {
     var BookCover:UIButton?
     var BookName:JVFloatLabeledTextField?
     var BookEditor:JVFloatLabeledTextField?
-    var delegate:BookTitleDelegate?
+   weak var delegate:BookTitleDelegate?
     
     
     //  hhshshshshshshshshshshs

@@ -13,9 +13,12 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
     var bookTitleView:BookTitleView?
     var tableView: UITableView?
     var titleArray:Array<String> = []
-    var book_title=""
+    var book_title = ""
+    
+    var score:LDXScore?
     
     
+    var showScore = false
     
     
     
@@ -50,6 +53,15 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
         
         self.titleArray = ["标题","评分","分类","书评"]
         
+        
+        self.score = LDXScore(frame:CGRectMake(100,10,100,22))
+        self.score?.isSelect = true
+        self.score?.normalImg = UIImage(named: "btn_star_evaluation_normal")
+        self.score?.highlightImg = UIImage(named: "btn_star_evaluation_press")
+        self.score?.max_star = 5
+        self.score?.show_star = 5
+        
+        showScore = false
     }
     
     
@@ -61,6 +73,10 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
+    }
+    
+    deinit{
+        print("-PushNewVc---deinit")
     }
     
     func choiceCover() {
@@ -153,20 +169,16 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
         case 0:
             cell.detailTextLabel?.text = self.book_title
             break
-        case 1:
-           
-            break
-        case 2:
-           
-            break
-        case 3:
-            
-            break
+      
         default:
             
             break
         }
        
+        if (self.showScore && indexPath.row == 2) {
+            cell.contentView .addSubview(self.score!)
+            
+        }
         return cell
     }
     
@@ -222,11 +234,28 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
     
     func tableViewSelectScore()
     {
-        let vc = Push_ScoreViewController()
-          GeneralFactory.addTitleViewWithTitle(vc)
-        self.presentViewController(vc, animated: true) {
+       
+        self.tableView?.beginUpdates()
+        let temIndexPaths = [NSIndexPath(forRow:2,inSection: 0)]
+        if self.showScore {
+            self.titleArray.removeAtIndex(2)
+            self.tableView?.deleteRowsAtIndexPaths(temIndexPaths, withRowAnimation: .Right)
             
+            
+             self.showScore = false
+        }else{
+            self.titleArray.insert("", atIndex: 2)
+            self.tableView?.insertRowsAtIndexPaths(temIndexPaths, withRowAnimation: .Left)
+            self.showScore = true
         }
+        
+       
+        
+        
+        
+        
+        
+        self.tableView?.endUpdates()
     }
     
     
