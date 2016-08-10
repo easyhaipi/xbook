@@ -3,7 +3,7 @@
 //  xbook
 //
 //  Created by taobaichi on 16/6/30.
-//  Copyright © 2016年 taobaichi. All rights reserved.
+//  Copy    right © 2016年 taobaichi. All rights reserved.
 //
 
 import UIKit
@@ -24,7 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let circleController = UINavigationController(rootViewController:circleViewController())
         let moreController = UINavigationController(rootViewController:moreViewController())
         
-        tabBarController.viewControllers = [rankController,searchController,pushController,circleController,moreController];
+          let moreController2 = UINavigationController(rootViewController:moreViewController())
+        tabBarController.viewControllers = [rankController,searchController,pushController,circleController,moreController,moreController2];
         
         
         let tabbarItem1 = UITabBarItem(title: "排行榜",image: UIImage(named:"bio"),selectedImage:UIImage(named:"bio_red") )
@@ -32,12 +33,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabbarItem3 = UITabBarItem(title: "",image: UIImage(named:"pencil"),selectedImage:UIImage(named:"pencil_red"))
         let tabbarItem4 = UITabBarItem(title: "圈子",image: UIImage(named:"users two-2"),selectedImage:UIImage(named:"users two-2_red"))
         let tabbarItem5 = UITabBarItem(title: "更多",image: UIImage(named:"more"),selectedImage:UIImage(named:"more_red"))
+        let tabbarItem6 = UITabBarItem(title: "测试",image: UIImage(named:"more"),selectedImage:UIImage(named:"more_red"))
+
         rankController.tabBarItem = tabbarItem1
         searchController.tabBarItem = tabbarItem2
         pushController.tabBarItem = tabbarItem3
         circleController.tabBarItem = tabbarItem4
         moreController.tabBarItem = tabbarItem5
-        
+        moreController2.tabBarItem = tabbarItem6
         
         rankController.tabBarController?.tabBar.tintColor = MAIN_RED
         self.window?.rootViewController = tabBarController
