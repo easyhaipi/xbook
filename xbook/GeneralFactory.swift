@@ -14,6 +14,7 @@ class GeneralFactory: NSObject {
     static func addTitleViewWithTitle(target:UIViewController,title1:String="关闭",title2:String="确认")
     {
         let btn1 = UIButton(frame:CGRectMake(10,20,40,20))
+        btn1.tag = 123
         btn1.setTitle(title1, forState: .Normal)
         btn1.contentHorizontalAlignment  = .Left
         btn1.setTitleColor(MAIN_RED, forState: .Normal)
@@ -22,6 +23,7 @@ class GeneralFactory: NSObject {
         
         
         let btn2 = UIButton(frame:CGRectMake(SCREEN_WIDTH-50,20,40,20))
+        btn2.tag = 345
         btn2.setTitle(title2, forState: .Normal)
         btn2.contentHorizontalAlignment  = .Right
         btn2.setTitleColor(MAIN_RED, forState: .Normal)

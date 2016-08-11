@@ -186,7 +186,14 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.tableView?.deselectRowAtIndexPath(indexPath, animated: true)
-        switch indexPath.row {
+        var row = indexPath.row
+        if (self.showScore && row>=2) {
+            row -= 1
+        }
+        
+        
+        
+        switch row {
         case 0://选择标题
             self.tableViewSelectTitle()
             break
@@ -267,6 +274,11 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
     {
         let vc = Push_TypeViewController()
           GeneralFactory.addTitleViewWithTitle(vc)
+        let btn1 = vc.view.viewWithTag(123) as?UIButton
+        btn1?.setTitleColor(RGB(38, g: 82, b: 67), forState: .Normal)
+        
+        let btn2 = vc.view.viewWithTag(345) as?UIButton
+        btn2?.setTitleColor(RGB(38, g: 82, b: 67), forState: .Normal)
         self.presentViewController(vc, animated: true) {
             
         }
