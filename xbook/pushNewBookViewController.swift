@@ -21,6 +21,10 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
     var showScore = false
     
     
+    var type = "文学"
+    var detailType = "文学"
+    
+    var des_description = ""
     
     
     override func viewDidLoad() {
@@ -165,13 +169,29 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
         cell.detailTextLabel?.font = UIFont(name: MY_FONT,size: 13)
 
         
-        switch indexPath.row {
+        var row = indexPath.row
+        if (self.showScore && row>=2) {
+            row--
+        }
+        
+        switch row {
         case 0:
             cell.detailTextLabel?.text = self.book_title
             break
-      
-        default:
+        case 2:
+            cell.detailTextLabel?.text = self.type + "-->" + self.detailType
+            break
+    
+        case 4:
+            cell.accessoryType = .None
+            let commentView = UITextView(frame: CGRectMake(4,4, SCREEN_WIDTH-8, 80))
             
+            commentView.text = self.des_description
+            commentView.font = UIFont(name: MY_FONT,size: 13)
+            commentView.editable = false
+            cell.contentView.addSubview(commentView)
+            break
+        default:
             break
         }
        
@@ -180,6 +200,18 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
             
         }
         return cell
+    }
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+      
+            if showScore && indexPath.row > 5 {
+                return 88
+            }else if  !showScore && indexPath.row > 4 {
+                
+                return  88
+            } else{
+             return   44
+        }
+        
     }
     
     
@@ -279,6 +311,14 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
         
         let btn2 = vc.view.viewWithTag(345) as?UIButton
         btn2?.setTitleColor(RGB(38, g: 82, b: 67), forState: .Normal)
+        vc.type = self.type
+        vc.detailType = self.detailType
+        vc.callBlock = ({(type:String,detailType:String)->Void in
+            self.type = type
+            self.detailType = detailType
+            self.tableView?.reloadData()
+        
+        });
         self.presentViewController(vc, animated: true) {
             
         }
@@ -293,6 +333,20 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
     {
         let vc = Push_DescriptionViewController()
           GeneralFactory.addTitleViewWithTitle(vc)
+       vc.textView?.text = self.des_description
+        vc.callBlock = ({(des:String)->Void in
+            self.des_description = des
+           
+            if self.titleArray.last == "" {
+                self.titleArray.removeLast()
+            }
+            if self.des_description != "" {
+                self.titleArray .append("")
+            }
+             self.tableView?.reloadData()
+        });
+        
+
         self.presentViewController(vc, animated: true) {
             
         }
