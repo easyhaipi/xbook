@@ -16,6 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
+        //设置leanCloud
+        
+        AVOSCloud.setApplicationId("WmwD4rDeSmBHI3wQo43CKUnS-gzGzoHsz", clientKey: "Sw091yOHsjyAIaRvTftH0Tng"
+        )
+        AVAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+        
+        
+        
+        
+        
+        
+        
         self.window = UIWindow(frame:CGRectMake(0,0,SCREEN_WIDTH,SCREEN_HEIGHT))
         let tabBarController = UITabBarController()
         let rankController = UINavigationController(rootViewController:rankViewController())

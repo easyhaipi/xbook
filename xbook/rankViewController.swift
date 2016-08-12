@@ -16,6 +16,15 @@ class rankViewController: UIViewController {
         
         self.view.backgroundColor = UIColor.whiteColor()
         
+//        AVUser.logOut()
+        
+        if AVUser.currentUser()==nil {
+            let storyBoard = UIStoryboard(name: "Login",bundle: nil)
+            let LoginVc = storyBoard.instantiateViewControllerWithIdentifier("Loginin")
+            self.presentViewController(LoginVc, animated: true, completion: {
+                
+            })
+        }
         
         
         let label = UILabel(frame:CGRectMake(0,0,300,30))

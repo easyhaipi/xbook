@@ -171,7 +171,7 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
         
         var row = indexPath.row
         if (self.showScore && row>=2) {
-            row--
+            row -= 1
         }
         
         switch row {
@@ -201,6 +201,8 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
         }
         return cell
     }
+    
+    
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
       
             if showScore && indexPath.row > 5 {

@@ -180,6 +180,11 @@
 		8ACDB3F51D5AFAA4000CF316 /* Push_TitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACDB3F41D5AFAA4000CF316 /* Push_TitleViewController.swift */; };
 		8ACDB3F71D5AFABD000CF316 /* Push_TypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACDB3F61D5AFABD000CF316 /* Push_TypeViewController.swift */; };
 		8ACDB3FB1D5AFAFB000CF316 /* Push_DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACDB3FA1D5AFAFB000CF316 /* Push_DescriptionViewController.swift */; };
+		8ACDE8321D5DA7FE00513B93 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ACDE8311D5DA7FE00513B93 /* Login.storyboard */; };
+		8ACDE8341D5DAB0000513B93 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACDE8331D5DAB0000513B93 /* LoginViewController.swift */; };
+		8ACDE8361D5DAB0A00513B93 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACDE8351D5DAB0A00513B93 /* RegisterViewController.swift */; };
+		8ACDE83B1D5DB1C000513B93 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8ACDE8381D5DB1C000513B93 /* ProgressHUD.bundle */; };
+		8ACDE83C1D5DB1C000513B93 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACDE83A1D5DB1C000513B93 /* ProgressHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -389,6 +394,12 @@
 		8ACDB3F41D5AFAA4000CF316 /* Push_TitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Push_TitleViewController.swift; sourceTree = "<group>"; };
 		8ACDB3F61D5AFABD000CF316 /* Push_TypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Push_TypeViewController.swift; sourceTree = "<group>"; };
 		8ACDB3FA1D5AFAFB000CF316 /* Push_DescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Push_DescriptionViewController.swift; sourceTree = "<group>"; };
+		8ACDE8311D5DA7FE00513B93 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		8ACDE8331D5DAB0000513B93 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8ACDE8351D5DAB0A00513B93 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		8ACDE8381D5DB1C000513B93 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
+		8ACDE8391D5DB1C000513B93 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
+		8ACDE83A1D5DB1C000513B93 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -522,6 +533,7 @@
 		8A404E261D24B91B001EDA20 /* xbook */ = {
 			isa = PBXGroup;
 			children = (
+				8ACDE8301D5DA7EB00513B93 /* Login */,
 				8A404F621D25059B001EDA20 /* ThirdKit */,
 				8A404F5D1D24F85C001EDA20 /* Factory */,
 				8A404F511D24E9F3001EDA20 /* resources */,
@@ -821,6 +833,7 @@
 		8A404F621D25059B001EDA20 /* ThirdKit */ = {
 			isa = PBXGroup;
 			children = (
+				8ACDE8371D5DB1C000513B93 /* ProgressHUD */,
 				8A34EE311D5C819400BF6DE5 /* XKeyBoard */,
 				8A34EE2A1D5C676500BF6DE5 /* IGLDropDownMenu */,
 				8A3834401D5B324700951000 /* AKSegmentedControl */,
@@ -862,6 +875,26 @@
 				8A404F7A1D250665001EDA20 /* red_point.png */,
 			);
 			path = Image;
+			sourceTree = "<group>";
+		};
+		8ACDE8301D5DA7EB00513B93 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				8ACDE8311D5DA7FE00513B93 /* Login.storyboard */,
+				8ACDE8331D5DAB0000513B93 /* LoginViewController.swift */,
+				8ACDE8351D5DAB0A00513B93 /* RegisterViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		8ACDE8371D5DB1C000513B93 /* ProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				8ACDE8381D5DB1C000513B93 /* ProgressHUD.bundle */,
+				8ACDE8391D5DB1C000513B93 /* ProgressHUD.h */,
+				8ACDE83A1D5DB1C000513B93 /* ProgressHUD.m */,
+			);
+			path = ProgressHUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1000,6 +1033,7 @@
 				8A404F461D24CC8A001EDA20 /* UMS_sina_icon@2x.png in Resources */,
 				8A404F1D1D24CC8A001EDA20 /* more_red@3x.png in Resources */,
 				8A404EE71D24CC8A001EDA20 /* alien@2x.png in Resources */,
+				8ACDE83B1D5DB1C000513B93 /* ProgressHUD.bundle in Resources */,
 				8A404EF61D24CC8A001EDA20 /* bank@3x.png in Resources */,
 				8A404F831D250665001EDA20 /* page1.png in Resources */,
 				8A404F1E1D24CC8A001EDA20 /* more_ren@2x.png in Resources */,
@@ -1110,6 +1144,7 @@
 				8A404EEE1D24CC8A001EDA20 /* Arrow Down 3@3x.png in Resources */,
 				8A404F421D24CC8A001EDA20 /* timer 2@3x.png in Resources */,
 				8A404F7D1D250665001EDA20 /* Blank2.png in Resources */,
+				8ACDE8321D5DA7FE00513B93 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1143,10 +1178,12 @@
 				8A404F611D25053F001EDA20 /* BookTitleView.swift in Sources */,
 				8A404E721D24C4F1001EDA20 /* pushViewController.swift in Sources */,
 				8A404F6C1D25063A001EDA20 /* NSString+TextDirectionality.m in Sources */,
+				8ACDE83C1D5DB1C000513B93 /* ProgressHUD.m in Sources */,
 				8A404E771D24C892001EDA20 /* moreViewController.swift in Sources */,
 				8A34EE2F1D5C676500BF6DE5 /* IGLDropDownItem.m in Sources */,
 				8ACDB3F71D5AFABD000CF316 /* Push_TypeViewController.swift in Sources */,
 				8ACDB3F51D5AFAA4000CF316 /* Push_TitleViewController.swift in Sources */,
+				8ACDE8341D5DAB0000513B93 /* LoginViewController.swift in Sources */,
 				8A1DDAD71D2608C7006BCCC6 /* PhotoPickerViewController.swift in Sources */,
 				8A34EE301D5C676500BF6DE5 /* IGLDropDownMenu.m in Sources */,
 				8A404F6B1D25063A001EDA20 /* JVFloatLabeledTextView.m in Sources */,
@@ -1156,6 +1193,7 @@
 				8A38343B1D5B1A7600951000 /* LDXScore.m in Sources */,
 				8A404E741D24C501001EDA20 /* circleViewController.swift in Sources */,
 				8A404F5C1D24F7AC001EDA20 /* pushNewBookViewController.swift in Sources */,
+				8ACDE8361D5DAB0A00513B93 /* RegisterViewController.swift in Sources */,
 				8A404E281D24B91B001EDA20 /* AppDelegate.swift in Sources */,
 				8A34EE341D5C819400BF6DE5 /* XKeyBoard.m in Sources */,
 			);
