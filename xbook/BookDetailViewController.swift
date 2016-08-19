@@ -92,18 +92,18 @@ class BookDetailViewController: UIViewController,BookTabBarDelegate,InputViewDel
         let scoreString = self.BookObject!["score"] as? String
         self.BookTitleView?.score?.show_star = Int(scoreString!)!
 //        
-//        let scanNumber = self.BookObject!["scanNumber"] as? NSNumber
-//        let loveNumber = self.BookObject!["loveNumber"] as? NSNumber
-//        let discussNumber = self.BookObject!["discussNumber"] as? NSNumber
+        let scanNumber = self.BookObject!["scanNumber"] as? NSNumber
+        let loveNumber = self.BookObject!["loveNumber"] as? NSNumber
+        let discussNumber = self.BookObject!["discussNumber"] as? NSNumber
         
-//        self.BookTitleView?.more?.text = (loveNumber?.stringValue)!+"个喜欢."+(discussNumber?.stringValue)!+"次评论."+(scanNumber?.stringValue)!+"次浏览"
-//        
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(BookDetailViewController.photoBrowser as (BookDetailViewController) -> () -> ()))
-//        self.BookTitleView?.cover?.addGestureRecognizer(tap)
-//        self.BookTitleView?.cover?.userInteractionEnabled = true
-//        
-//        self.BookObject?.incrementKey("scanNumber")
-//        self.BookObject?.saveInBackground()
+        self.BookTitleView?.more?.text = (loveNumber?.stringValue)!+"个喜欢."+(discussNumber?.stringValue)!+"次评论."+(scanNumber?.stringValue)!+"次浏览"
+//
+        let tap = UITapGestureRecognizer(target: self, action: #selector(BookDetailViewController.photoBrowser as (BookDetailViewController) -> () -> ()))
+        self.BookTitleView?.cover?.addGestureRecognizer(tap)
+        self.BookTitleView?.cover?.userInteractionEnabled = true
+        
+        self.BookObject?.incrementKey("scanNumber")
+        self.BookObject?.saveInBackground()
         
     }
 

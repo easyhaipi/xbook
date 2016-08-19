@@ -36,8 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let circleController = UINavigationController(rootViewController:circleViewController())
         let moreController = UINavigationController(rootViewController:moreViewController())
         
-          let moreController2 = UINavigationController(rootViewController:moreViewController())
-        tabBarController.viewControllers = [rankController,searchController,pushController,circleController,moreController,moreController2];
+//          let moreController2 = UINavigationController(rootViewController:moreViewController())
+        tabBarController.viewControllers = [rankController,searchController,pushController,circleController,moreController];
         
         
         let tabbarItem1 = UITabBarItem(title: "排行榜",image: UIImage(named:"bio"),selectedImage:UIImage(named:"bio_red") )

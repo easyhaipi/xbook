@@ -112,7 +112,14 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
         let dict = notification.userInfo
         if (String(dict!["success"]!)) == "true" {
           
+            if self.fixType == "fix" {
+                
+                ProgressHUD.showSuccess("修改成功")
+            }else{
+                
                 ProgressHUD.showSuccess("上传成功")
+            }
+        
             
             self.dismissViewControllerAnimated(true, completion: { () -> Void in
                 
