@@ -66,12 +66,33 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
         self.score?.show_star = 5
         
         showScore = false
+        
+        
+        /**
+         注册通知
+         */
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(pushNewBookViewController.pushCallBack(_:)), name: "pushCallBack", object: nil)
     }
     
     
     
     
-    
+    /**
+     pushCallBack
+     */
+    func pushCallBack(notification:NSNotification){
+        let dict = notification.userInfo
+        if (String(dict!["success"]!)) == "true" {
+          
+                ProgressHUD.showSuccess("上传成功")
+            
+            self.dismissViewControllerAnimated(true, completion: { () -> Void in
+                
+            })
+        }else{
+            ProgressHUD.showError("上传失败")
+        }
+    }
     
 
     override func didReceiveMemoryWarning() {
@@ -80,9 +101,12 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
     }
     
     deinit{
-        print("-PushNewVc---deinit")
+        print("pushNewBookController reallse")
+        /**
+         移除通知
+         */
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
-    
     func choiceCover() {
         print("------选择封面")
         
@@ -115,6 +139,25 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
         }
     }
     func ok() {
+        
+        let dict = [
+            "BookName":(self.bookTitleView?.BookName?.text)!,
+            "BookEditor":(self.bookTitleView?.BookEditor?.text)!,
+            "BookCover":(self.bookTitleView?.BookCover?.currentImage)!,
+            "title":self.book_title,
+            "score":String((self.score?.show_star)!),
+            "type":self.type,
+            "detailType":self.detailType,
+            "description":self.des_description,
+            ]
+        ProgressHUD.show("")
+        
+      
+            
+            let object = AVObject(className: "Book")
+            pushBook.pushBookInBack(dict, object: object)
+       
+
         self.dismissViewControllerAnimated(true) {
             
         }

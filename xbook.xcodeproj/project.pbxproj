@@ -213,6 +213,7 @@
 		8A7B84421D66AF5500E845F5 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A7B84301D66AF5500E845F5 /* UIImageView+HighlightedWebCache.m */; };
 		8A7B84431D66AF5500E845F5 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A7B84321D66AF5500E845F5 /* UIImageView+WebCache.m */; };
 		8A7B84441D66AF5500E845F5 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A7B84341D66AF5500E845F5 /* UIView+WebCacheOperation.m */; };
+		8A7B84461D66B59400E845F5 /* pushBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7B84451D66B59400E845F5 /* pushBook.swift */; };
 		8ACDB3F51D5AFAA4000CF316 /* Push_TitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACDB3F41D5AFAA4000CF316 /* Push_TitleViewController.swift */; };
 		8ACDB3F71D5AFABD000CF316 /* Push_TypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACDB3F61D5AFABD000CF316 /* Push_TypeViewController.swift */; };
 		8ACDB3FB1D5AFAFB000CF316 /* Push_DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACDB3FA1D5AFAFB000CF316 /* Push_DescriptionViewController.swift */; };
@@ -499,6 +500,7 @@
 		8A7B84321D66AF5500E845F5 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		8A7B84331D66AF5500E845F5 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		8A7B84341D66AF5500E845F5 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		8A7B84451D66B59400E845F5 /* pushBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pushBook.swift; sourceTree = "<group>"; };
 		8ACDB3F41D5AFAA4000CF316 /* Push_TitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Push_TitleViewController.swift; sourceTree = "<group>"; };
 		8ACDB3F61D5AFABD000CF316 /* Push_TypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Push_TypeViewController.swift; sourceTree = "<group>"; };
 		8ACDB3FA1D5AFAFB000CF316 /* Push_DescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Push_DescriptionViewController.swift; sourceTree = "<group>"; };
@@ -927,6 +929,7 @@
 		8A404F5A1D24F785001EDA20 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8A7B84451D66B59400E845F5 /* pushBook.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1433,6 +1436,7 @@
 				8A404F611D25053F001EDA20 /* BookTitleView.swift in Sources */,
 				8A404E721D24C4F1001EDA20 /* pushViewController.swift in Sources */,
 				8A7B84421D66AF5500E845F5 /* UIImageView+HighlightedWebCache.m in Sources */,
+				8A7B84461D66B59400E845F5 /* pushBook.swift in Sources */,
 				8A537F6F1D669D7500C2AC62 /* UIScrollView+MJRefresh.m in Sources */,
 				8A537F6E1D669D7500C2AC62 /* UIScrollView+MJExtension.m in Sources */,
 				8A537F691D669D7500C2AC62 /* MJRefreshGifHeader.m in Sources */,
