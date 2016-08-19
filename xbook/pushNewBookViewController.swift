@@ -27,6 +27,12 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
     var des_description = ""
     
     
+    
+    /// 编辑
+    var BookObject:AVObject?
+    var fixType:String?
+    
+    
     override func viewDidLoad() {
         
        
@@ -75,7 +81,29 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
     }
     
     
-    
+    /**
+     编辑
+     */
+    func fixBook(){
+        if self.fixType == "fix" {
+            self.bookTitleView?.BookName?.text = self.BookObject!["BookName"] as? String
+            self.bookTitleView?.BookEditor?.text = self.BookObject!["BookEditor"] as? String
+            let coverFile = self.BookObject!["cover"] as? AVFile
+            coverFile?.getDataInBackgroundWithBlock({ (data, error) -> Void in
+                self.bookTitleView?.BookCover?.setImage(UIImage(data: data), forState: .Normal)
+            })
+            
+            self.book_title = (self.BookObject!["title"] as? String)!
+            self.type = (self.BookObject!["type"] as? String)!
+            self.detailType = (self.BookObject!["detailType"] as? String)!
+            self.des_description = (self.BookObject!["description"] as? String)!
+            self.score?.show_star = (Int)((self.BookObject!["score"] as? String)!)!
+            if self.des_description != "" {
+                self.titleArray.append("")
+            }
+        }
+    }
+
     
     /**
      pushCallBack
@@ -150,12 +178,17 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
             "detailType":self.detailType,
             "description":self.des_description,
             ]
-        ProgressHUD.show("")
+            ProgressHUD.show("")
         
       
+        if self.fixType == "fix" {
+            pushBook.pushBookInBack(dict, object: self.BookObject!)
+        }else{
             
             let object = AVObject(className: "Book")
             pushBook.pushBookInBack(dict, object: object)
+        }
+
        
 
         self.dismissViewControllerAnimated(true) {

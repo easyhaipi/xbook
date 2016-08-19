@@ -8,13 +8,15 @@
 
 import UIKit
 
-class pushViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource{
+class pushViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource,SWTableViewCellDelegate{
 
     
     
     var dataArray = NSMutableArray()
      var navigationView:UIView!
     var tableView:UITableView?
+    
+    var swipIndexPath:NSIndexPath?
     
     
     
@@ -139,6 +141,10 @@ class pushViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView?.dequeueReusableCellWithIdentifier("cell",forIndexPath: indexPath) as?Push_BookCell
         
+        cell?.rightUtilityButtons = self.returnRightButtons()
+        cell?.delegate = self
+        
+        
         let dict = self.dataArray[indexPath.row] as?AVObject
         
         cell?.BookName?.text = "《"+(dict!["BookName"] as! String)+"》:"+(dict!["title"] as! String)
@@ -155,6 +161,21 @@ class pushViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
         return cell!
     }
     
+    
+    func returnRightButtons() -> [AnyObject] {
+        
+        let btn1 = UIButton(frame: CGRectMake(0,0,88,88))
+        btn1.backgroundColor = UIColor.orangeColor()
+        btn1.setTitle("编辑", forState: .Normal)
+        
+        let btn2 = UIButton(frame:CGRectMake(0,0,88,88))
+        btn2.backgroundColor = UIColor.redColor()
+        btn2.setTitle("删除", forState: .Normal)
+        
+        return [btn1,btn2]
+
+    }
+    
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 88
     }
@@ -169,4 +190,76 @@ class pushViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
         
     }
     
+    
+    /**
+     SWTableViewCellDelegate
+     */
+    func swipeableTableViewCell(cell: SWTableViewCell!, scrollingToState state: SWCellState) {
+        let indexPath = self.tableView?.indexPathForCell(cell)
+        if state == .CellStateRight{
+            if self.swipIndexPath != nil && self.swipIndexPath?.row != indexPath?.row {
+                let swipedCell = self.tableView?.cellForRowAtIndexPath(self.swipIndexPath!) as? Push_BookCell
+                swipedCell?.hideUtilityButtonsAnimated(true)
+            }
+            self.swipIndexPath = indexPath
+        }else if state == .CellStateCenter{
+            self.swipIndexPath = nil
+        }
+    }
+    func swipeableTableViewCell(cell: SWTableViewCell!, didTriggerRightUtilityButtonWithIndex index: Int) {
+        cell.hideUtilityButtonsAnimated(true)
+        
+        let indexPath = self.tableView?.indexPathForCell(cell)
+        
+        let object = self.dataArray[indexPath!.row] as? AVObject
+//
+        if index == 0 {  //编辑
+            let vc = pushNewBookViewController()
+            GeneralFactory.addTitleViewWithTitle(vc, title1: "关闭", title2: "发布")
+            
+//
+            vc.fixType = "fix"
+            vc.BookObject = object
+            vc.fixBook()
+            self.presentViewController(vc, animated: true, completion: { () -> Void in
+            })
+        }else{     //删除
+            ProgressHUD.show("")
+            
+            let discussQuery = AVQuery(className: "discuss")
+            discussQuery.whereKey("BookObject", equalTo: object)
+            discussQuery.findObjectsInBackgroundWithBlock({ (results, error) -> Void in
+                for Book in results {
+                    let BookObject = Book as? AVObject
+                    BookObject?.deleteInBackground()
+                }
+            })
+            
+            let loveQuery = AVQuery(className: "Love")
+            loveQuery.whereKey("BookObject", equalTo: object)
+            loveQuery.findObjectsInBackgroundWithBlock({ (results, error) -> Void in
+                for Book in results {
+                    let BookObject = Book as? AVObject
+                    BookObject?.deleteInBackground()
+                }
+            })
+        
+            object?.deleteInBackgroundWithBlock({ (success, error) -> Void in
+                if success {
+                    ProgressHUD.showSuccess("删除成功")
+                    self.dataArray.removeObjectAtIndex((indexPath?.row)!)
+                    self.tableView?.reloadData()
+                    
+                    
+                }else{
+                    
+                }
+            })
+            
+            
+        }
+        
+        
+    }
+
 }
