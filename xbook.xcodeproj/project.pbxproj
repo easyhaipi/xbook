@@ -214,6 +214,24 @@
 		8A7B84431D66AF5500E845F5 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A7B84321D66AF5500E845F5 /* UIImageView+WebCache.m */; };
 		8A7B84441D66AF5500E845F5 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A7B84341D66AF5500E845F5 /* UIView+WebCacheOperation.m */; };
 		8A7B84461D66B59400E845F5 /* pushBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7B84451D66B59400E845F5 /* pushBook.swift */; };
+		8A7B84491D66D26600E845F5 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7B84481D66D26600E845F5 /* BookDetailViewController.swift */; };
+		8A7B844B1D66D3C700E845F5 /* BookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7B844A1D66D3C700E845F5 /* BookDetailView.swift */; };
+		8A7B844D1D66D86D00E845F5 /* BookTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7B844C1D66D86D00E845F5 /* BookTabBar.swift */; };
+		8A7B84841D66DA3600E845F5 /* HZIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A7B847D1D66DA3600E845F5 /* HZIndicatorView.m */; };
+		8A7B84851D66DA3600E845F5 /* HZPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A7B847F1D66DA3600E845F5 /* HZPhotoBrowser.m */; };
+		8A7B84861D66DA3600E845F5 /* HZPhotoBrowserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A7B84821D66DA3600E845F5 /* HZPhotoBrowserView.m */; };
+		8A7B84871D66DA3600E845F5 /* whiteplaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A7B84831D66DA3600E845F5 /* whiteplaceholder.png */; };
+		8A7B849B1D66DA7600E845F5 /* InputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A7B848A1D66DA7600E845F5 /* InputView.m */; };
+		8A7B849C1D66DA7600E845F5 /* InputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A7B848B1D66DA7600E845F5 /* InputView.xib */; };
+		8A7B849D1D66DA7600E845F5 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A7B848D1D66DA7600E845F5 /* UIViewExt.m */; };
+		8A7B849E1D66DA7600E845F5 /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A7B84901D66DA7600E845F5 /* NSMutableArray+SWUtilityButtons.m */; };
+		8A7B849F1D66DA7600E845F5 /* SWCellScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A7B84921D66DA7600E845F5 /* SWCellScrollView.m */; };
+		8A7B84A01D66DA7600E845F5 /* SWLongPressGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A7B84941D66DA7600E845F5 /* SWLongPressGestureRecognizer.m */; };
+		8A7B84A11D66DA7600E845F5 /* SWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A7B84961D66DA7600E845F5 /* SWTableViewCell.m */; };
+		8A7B84A21D66DA7600E845F5 /* SWUtilityButtonTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A7B84981D66DA7600E845F5 /* SWUtilityButtonTapGestureRecognizer.m */; };
+		8A7B84A31D66DA7600E845F5 /* SWUtilityButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A7B849A1D66DA7600E845F5 /* SWUtilityButtonView.m */; };
+		8A7B84A51D66DCC500E845F5 /* commentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7B84A41D66DCC500E845F5 /* commentViewController.swift */; };
+		8A7B84A71D66DCCB00E845F5 /* discussCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7B84A61D66DCCB00E845F5 /* discussCell.swift */; };
 		8ACDB3F51D5AFAA4000CF316 /* Push_TitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACDB3F41D5AFAA4000CF316 /* Push_TitleViewController.swift */; };
 		8ACDB3F71D5AFABD000CF316 /* Push_TypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACDB3F61D5AFABD000CF316 /* Push_TypeViewController.swift */; };
 		8ACDB3FB1D5AFAFB000CF316 /* Push_DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACDB3FA1D5AFAFB000CF316 /* Push_DescriptionViewController.swift */; };
@@ -501,6 +519,36 @@
 		8A7B84331D66AF5500E845F5 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		8A7B84341D66AF5500E845F5 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		8A7B84451D66B59400E845F5 /* pushBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pushBook.swift; sourceTree = "<group>"; };
+		8A7B84481D66D26600E845F5 /* BookDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
+		8A7B844A1D66D3C700E845F5 /* BookDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
+		8A7B844C1D66D86D00E845F5 /* BookTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTabBar.swift; sourceTree = "<group>"; };
+		8A7B847C1D66DA3600E845F5 /* HZIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZIndicatorView.h; sourceTree = "<group>"; };
+		8A7B847D1D66DA3600E845F5 /* HZIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZIndicatorView.m; sourceTree = "<group>"; };
+		8A7B847E1D66DA3600E845F5 /* HZPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZPhotoBrowser.h; sourceTree = "<group>"; };
+		8A7B847F1D66DA3600E845F5 /* HZPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZPhotoBrowser.m; sourceTree = "<group>"; };
+		8A7B84801D66DA3600E845F5 /* HZPhotoBrowserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZPhotoBrowserConfig.h; sourceTree = "<group>"; };
+		8A7B84811D66DA3600E845F5 /* HZPhotoBrowserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZPhotoBrowserView.h; sourceTree = "<group>"; };
+		8A7B84821D66DA3600E845F5 /* HZPhotoBrowserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZPhotoBrowserView.m; sourceTree = "<group>"; };
+		8A7B84831D66DA3600E845F5 /* whiteplaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteplaceholder.png; sourceTree = "<group>"; };
+		8A7B84891D66DA7600E845F5 /* InputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputView.h; sourceTree = "<group>"; };
+		8A7B848A1D66DA7600E845F5 /* InputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputView.m; sourceTree = "<group>"; };
+		8A7B848B1D66DA7600E845F5 /* InputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputView.xib; sourceTree = "<group>"; };
+		8A7B848C1D66DA7600E845F5 /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
+		8A7B848D1D66DA7600E845F5 /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
+		8A7B848F1D66DA7600E845F5 /* NSMutableArray+SWUtilityButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SWUtilityButtons.h"; sourceTree = "<group>"; };
+		8A7B84901D66DA7600E845F5 /* NSMutableArray+SWUtilityButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SWUtilityButtons.m"; sourceTree = "<group>"; };
+		8A7B84911D66DA7600E845F5 /* SWCellScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWCellScrollView.h; sourceTree = "<group>"; };
+		8A7B84921D66DA7600E845F5 /* SWCellScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWCellScrollView.m; sourceTree = "<group>"; };
+		8A7B84931D66DA7600E845F5 /* SWLongPressGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWLongPressGestureRecognizer.h; sourceTree = "<group>"; };
+		8A7B84941D66DA7600E845F5 /* SWLongPressGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWLongPressGestureRecognizer.m; sourceTree = "<group>"; };
+		8A7B84951D66DA7600E845F5 /* SWTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTableViewCell.h; sourceTree = "<group>"; };
+		8A7B84961D66DA7600E845F5 /* SWTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTableViewCell.m; sourceTree = "<group>"; };
+		8A7B84971D66DA7600E845F5 /* SWUtilityButtonTapGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWUtilityButtonTapGestureRecognizer.h; sourceTree = "<group>"; };
+		8A7B84981D66DA7600E845F5 /* SWUtilityButtonTapGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonTapGestureRecognizer.m; sourceTree = "<group>"; };
+		8A7B84991D66DA7600E845F5 /* SWUtilityButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWUtilityButtonView.h; sourceTree = "<group>"; };
+		8A7B849A1D66DA7600E845F5 /* SWUtilityButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonView.m; sourceTree = "<group>"; };
+		8A7B84A41D66DCC500E845F5 /* commentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = commentViewController.swift; sourceTree = "<group>"; };
+		8A7B84A61D66DCCB00E845F5 /* discussCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = discussCell.swift; sourceTree = "<group>"; };
 		8ACDB3F41D5AFAA4000CF316 /* Push_TitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Push_TitleViewController.swift; sourceTree = "<group>"; };
 		8ACDB3F61D5AFABD000CF316 /* Push_TypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Push_TypeViewController.swift; sourceTree = "<group>"; };
 		8ACDB3FA1D5AFAFB000CF316 /* Push_DescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Push_DescriptionViewController.swift; sourceTree = "<group>"; };
@@ -643,6 +691,7 @@
 		8A404E261D24B91B001EDA20 /* xbook */ = {
 			isa = PBXGroup;
 			children = (
+				8A7B84471D66D23500E845F5 /* BookDetailViewController */,
 				8ACDE8301D5DA7EB00513B93 /* Login */,
 				8A404F621D25059B001EDA20 /* ThirdKit */,
 				8A404F5D1D24F85C001EDA20 /* Factory */,
@@ -945,6 +994,9 @@
 		8A404F621D25059B001EDA20 /* ThirdKit */ = {
 			isa = PBXGroup;
 			children = (
+				8A7B84881D66DA7600E845F5 /* InputView */,
+				8A7B848E1D66DA7600E845F5 /* LeftSwipeCell */,
+				8A7B847B1D66DA3600E845F5 /* HZPhotoBrowser */,
 				8A7B84131D66AF5500E845F5 /* SDWebImage */,
 				8A537F311D669D7500C2AC62 /* MJRefresh */,
 				8ACDE8371D5DB1C000513B93 /* ProgressHUD */,
@@ -1122,6 +1174,64 @@
 				8A7B84341D66AF5500E845F5 /* UIView+WebCacheOperation.m */,
 			);
 			path = SDWebImage;
+			sourceTree = "<group>";
+		};
+		8A7B84471D66D23500E845F5 /* BookDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8A7B84481D66D26600E845F5 /* BookDetailViewController.swift */,
+				8A7B844A1D66D3C700E845F5 /* BookDetailView.swift */,
+				8A7B844C1D66D86D00E845F5 /* BookTabBar.swift */,
+				8A7B84A41D66DCC500E845F5 /* commentViewController.swift */,
+				8A7B84A61D66DCCB00E845F5 /* discussCell.swift */,
+			);
+			name = BookDetailViewController;
+			sourceTree = "<group>";
+		};
+		8A7B847B1D66DA3600E845F5 /* HZPhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				8A7B847C1D66DA3600E845F5 /* HZIndicatorView.h */,
+				8A7B847D1D66DA3600E845F5 /* HZIndicatorView.m */,
+				8A7B847E1D66DA3600E845F5 /* HZPhotoBrowser.h */,
+				8A7B847F1D66DA3600E845F5 /* HZPhotoBrowser.m */,
+				8A7B84801D66DA3600E845F5 /* HZPhotoBrowserConfig.h */,
+				8A7B84811D66DA3600E845F5 /* HZPhotoBrowserView.h */,
+				8A7B84821D66DA3600E845F5 /* HZPhotoBrowserView.m */,
+				8A7B84831D66DA3600E845F5 /* whiteplaceholder.png */,
+			);
+			path = HZPhotoBrowser;
+			sourceTree = "<group>";
+		};
+		8A7B84881D66DA7600E845F5 /* InputView */ = {
+			isa = PBXGroup;
+			children = (
+				8A7B84891D66DA7600E845F5 /* InputView.h */,
+				8A7B848A1D66DA7600E845F5 /* InputView.m */,
+				8A7B848B1D66DA7600E845F5 /* InputView.xib */,
+				8A7B848C1D66DA7600E845F5 /* UIViewExt.h */,
+				8A7B848D1D66DA7600E845F5 /* UIViewExt.m */,
+			);
+			path = InputView;
+			sourceTree = "<group>";
+		};
+		8A7B848E1D66DA7600E845F5 /* LeftSwipeCell */ = {
+			isa = PBXGroup;
+			children = (
+				8A7B848F1D66DA7600E845F5 /* NSMutableArray+SWUtilityButtons.h */,
+				8A7B84901D66DA7600E845F5 /* NSMutableArray+SWUtilityButtons.m */,
+				8A7B84911D66DA7600E845F5 /* SWCellScrollView.h */,
+				8A7B84921D66DA7600E845F5 /* SWCellScrollView.m */,
+				8A7B84931D66DA7600E845F5 /* SWLongPressGestureRecognizer.h */,
+				8A7B84941D66DA7600E845F5 /* SWLongPressGestureRecognizer.m */,
+				8A7B84951D66DA7600E845F5 /* SWTableViewCell.h */,
+				8A7B84961D66DA7600E845F5 /* SWTableViewCell.m */,
+				8A7B84971D66DA7600E845F5 /* SWUtilityButtonTapGestureRecognizer.h */,
+				8A7B84981D66DA7600E845F5 /* SWUtilityButtonTapGestureRecognizer.m */,
+				8A7B84991D66DA7600E845F5 /* SWUtilityButtonView.h */,
+				8A7B849A1D66DA7600E845F5 /* SWUtilityButtonView.m */,
+			);
+			path = LeftSwipeCell;
 			sourceTree = "<group>";
 		};
 		8ACDE8301D5DA7EB00513B93 /* Login */ = {
@@ -1302,6 +1412,7 @@
 				8A404EFB1D24CC8A001EDA20 /* box outgoing@2x.png in Resources */,
 				8A404F0C1D24CC8A001EDA20 /* fire element@3x.png in Resources */,
 				8A404EF71D24CC8A001EDA20 /* bio@2x.png in Resources */,
+				8A7B849C1D66DA7600E845F5 /* InputView.xib in Resources */,
 				8A404F191D24CC8A001EDA20 /* map pin location@2x.png in Resources */,
 				8A404F371D24CC8A001EDA20 /* social-icon.png in Resources */,
 				8A404F0F1D24CC8A001EDA20 /* Geo3 Love_red@2x.png in Resources */,
@@ -1352,6 +1463,7 @@
 				8A404EFF1D24CC8A001EDA20 /* chat 3@2x.png in Resources */,
 				8A404F261D24CC8A001EDA20 /* pencil_red@3x.png in Resources */,
 				8A38345A1D5B324700951000 /* segmented-bg-pressed-right@2x.png in Resources */,
+				8A7B84871D66DA3600E845F5 /* whiteplaceholder.png in Resources */,
 				8A404F4A1D24CC8A001EDA20 /* user tick 2_red@3x.png in Resources */,
 				8A404F0B1D24CC8A001EDA20 /* fire element@2x.png in Resources */,
 				8A404F301D24CC8A001EDA20 /* segmented-bg-pressed-right@2x.png in Resources */,
@@ -1419,40 +1531,52 @@
 			files = (
 				8A404F5F1D24F890001EDA20 /* GeneralFactory.swift in Sources */,
 				8A537F631D669D7500C2AC62 /* MJRefreshAutoGifFooter.m in Sources */,
+				8A7B844D1D66D86D00E845F5 /* BookTabBar.swift in Sources */,
 				8A537F651D669D7500C2AC62 /* MJRefreshAutoStateFooter.m in Sources */,
 				8A404E661D24C32C001EDA20 /* config.swift in Sources */,
 				8A537F601D669D7500C2AC62 /* MJRefreshComponent.m in Sources */,
+				8A7B84A21D66DA7600E845F5 /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
 				8A537F611D669D7500C2AC62 /* MJRefreshFooter.m in Sources */,
 				8A7B84401D66AF5500E845F5 /* UIImage+MultiFormat.m in Sources */,
+				8A7B84A31D66DA7600E845F5 /* SWUtilityButtonView.m in Sources */,
 				8A404F6A1D25063A001EDA20 /* JVFloatLabeledTextField.m in Sources */,
 				8A7B84411D66AF5500E845F5 /* UIImage+WebP.m in Sources */,
 				8A7B84391D66AF5500E845F5 /* SDWebImageDecoder.m in Sources */,
+				8A7B84851D66DA3600E845F5 /* HZPhotoBrowser.m in Sources */,
 				8A7B84381D66AF5500E845F5 /* SDWebImageCompat.m in Sources */,
 				8A3834541D5B324700951000 /* AKSegmentedControl.m in Sources */,
+				8A7B84A51D66DCC500E845F5 /* commentViewController.swift in Sources */,
 				8A2D95661D2CD1EE00ACC2CA /* testViewController.swift in Sources */,
 				8ACDB3FB1D5AFAFB000CF316 /* Push_DescriptionViewController.swift in Sources */,
 				8A7B84361D66AF5500E845F5 /* NSData+ImageContentType.m in Sources */,
 				8A7B84121D66A86300E845F5 /* Push_BookCell.swift in Sources */,
+				8A7B849D1D66DA7600E845F5 /* UIViewExt.m in Sources */,
 				8A404F611D25053F001EDA20 /* BookTitleView.swift in Sources */,
 				8A404E721D24C4F1001EDA20 /* pushViewController.swift in Sources */,
 				8A7B84421D66AF5500E845F5 /* UIImageView+HighlightedWebCache.m in Sources */,
 				8A7B84461D66B59400E845F5 /* pushBook.swift in Sources */,
 				8A537F6F1D669D7500C2AC62 /* UIScrollView+MJRefresh.m in Sources */,
 				8A537F6E1D669D7500C2AC62 /* UIScrollView+MJExtension.m in Sources */,
+				8A7B84491D66D26600E845F5 /* BookDetailViewController.swift in Sources */,
+				8A7B849E1D66DA7600E845F5 /* NSMutableArray+SWUtilityButtons.m in Sources */,
 				8A537F691D669D7500C2AC62 /* MJRefreshGifHeader.m in Sources */,
 				8A404F6C1D25063A001EDA20 /* NSString+TextDirectionality.m in Sources */,
 				8A7B843A1D66AF5500E845F5 /* SDWebImageDownloader.m in Sources */,
 				8A7B843E1D66AF5500E845F5 /* UIButton+WebCache.m in Sources */,
 				8A537F6B1D669D7500C2AC62 /* MJRefreshStateHeader.m in Sources */,
+				8A7B84861D66DA3600E845F5 /* HZPhotoBrowserView.m in Sources */,
 				8ACDE83C1D5DB1C000513B93 /* ProgressHUD.m in Sources */,
 				8A537F671D669D7500C2AC62 /* MJRefreshBackNormalFooter.m in Sources */,
 				8A404E771D24C892001EDA20 /* moreViewController.swift in Sources */,
 				8A34EE2F1D5C676500BF6DE5 /* IGLDropDownItem.m in Sources */,
 				8ACDB3F71D5AFABD000CF316 /* Push_TypeViewController.swift in Sources */,
 				8ACDB3F51D5AFAA4000CF316 /* Push_TitleViewController.swift in Sources */,
+				8A7B849B1D66DA7600E845F5 /* InputView.m in Sources */,
 				8ACDE8341D5DAB0000513B93 /* LoginViewController.swift in Sources */,
 				8A7B843B1D66AF5500E845F5 /* SDWebImageDownloaderOperation.m in Sources */,
+				8A7B849F1D66DA7600E845F5 /* SWCellScrollView.m in Sources */,
 				8A1DDAD71D2608C7006BCCC6 /* PhotoPickerViewController.swift in Sources */,
+				8A7B844B1D66D3C700E845F5 /* BookDetailView.swift in Sources */,
 				8A34EE301D5C676500BF6DE5 /* IGLDropDownMenu.m in Sources */,
 				8A404F6B1D25063A001EDA20 /* JVFloatLabeledTextView.m in Sources */,
 				8A404E6E1D24C4C1001EDA20 /* SearchViewController.swift in Sources */,
@@ -1460,6 +1584,7 @@
 				8A537F6A1D669D7500C2AC62 /* MJRefreshNormalHeader.m in Sources */,
 				8A537F641D669D7500C2AC62 /* MJRefreshAutoNormalFooter.m in Sources */,
 				8A537F701D669D7500C2AC62 /* UIView+MJExtension.m in Sources */,
+				8A7B84A71D66DCCB00E845F5 /* discussCell.swift in Sources */,
 				8A7B84441D66AF5500E845F5 /* UIView+WebCacheOperation.m in Sources */,
 				8A7B84371D66AF5500E845F5 /* SDImageCache.m in Sources */,
 				8A7B843C1D66AF5500E845F5 /* SDWebImageManager.m in Sources */,
@@ -1479,7 +1604,10 @@
 				8A404E281D24B91B001EDA20 /* AppDelegate.swift in Sources */,
 				8A7B843F1D66AF5500E845F5 /* UIImage+GIF.m in Sources */,
 				8A34EE341D5C819400BF6DE5 /* XKeyBoard.m in Sources */,
+				8A7B84A11D66DA7600E845F5 /* SWTableViewCell.m in Sources */,
 				8A537F5F1D669D7500C2AC62 /* MJRefreshBackFooter.m in Sources */,
+				8A7B84841D66DA3600E845F5 /* HZIndicatorView.m in Sources */,
+				8A7B84A01D66DA7600E845F5 /* SWLongPressGestureRecognizer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1617,9 +1745,16 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/release-v3.3.4/Static",
+					"$(PROJECT_DIR)/xbook/ShareSDK/extends/QQSDK",
+					"$(PROJECT_DIR)/xbook/ShareSDK",
 				);
 				INFOPLIST_FILE = xbook/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/xbook/ShareSDK/extends/SinaWeiboSDK",
+					"$(PROJECT_DIR)/xbook/ShareSDK/extends/WeChatSDK",
+				);
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-licucore",
@@ -1641,9 +1776,16 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/release-v3.3.4/Static",
+					"$(PROJECT_DIR)/xbook/ShareSDK/extends/QQSDK",
+					"$(PROJECT_DIR)/xbook/ShareSDK",
 				);
 				INFOPLIST_FILE = xbook/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/xbook/ShareSDK/extends/SinaWeiboSDK",
+					"$(PROJECT_DIR)/xbook/ShareSDK/extends/WeChatSDK",
+				);
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-licucore",

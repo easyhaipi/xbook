@@ -45,14 +45,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabbarItem3 = UITabBarItem(title: "",image: UIImage(named:"pencil"),selectedImage:UIImage(named:"pencil_red"))
         let tabbarItem4 = UITabBarItem(title: "圈子",image: UIImage(named:"users two-2"),selectedImage:UIImage(named:"users two-2_red"))
         let tabbarItem5 = UITabBarItem(title: "更多",image: UIImage(named:"more"),selectedImage:UIImage(named:"more_red"))
-        let tabbarItem6 = UITabBarItem(title: "测试",image: UIImage(named:"more"),selectedImage:UIImage(named:"more_red"))
+//        let tabbarItem6 = UITabBarItem(title: "测试",image: UIImage(named:"more"),selectedImage:UIImage(named:"more_red"))
 
         rankController.tabBarItem = tabbarItem1
         searchController.tabBarItem = tabbarItem2
         pushController.tabBarItem = tabbarItem3
         circleController.tabBarItem = tabbarItem4
         moreController.tabBarItem = tabbarItem5
-        moreController2.tabBarItem = tabbarItem6
+//        moreController2.tabBarItem = tabbarItem6
         
         rankController.tabBarController?.tabBar.tintColor = MAIN_RED
         self.window?.rootViewController = tabBarController

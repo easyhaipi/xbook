@@ -13,7 +13,7 @@ class pushViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
     
     
     var dataArray = NSMutableArray()
-    
+     var navigationView:UIView!
     var tableView:UITableView?
     
     
@@ -45,7 +45,12 @@ class pushViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
       self.tableView?.mj_header.beginRefreshing()
     
     }
-    
+    override func viewDidAppear(animated: Bool) {
+        self.navigationView.hidden = false
+    }
+    override func viewWillDisappear(animated: Bool) {
+        self.navigationView.hidden = true
+    }
     
     func HeaderRefreshMore(){
         
@@ -58,6 +63,7 @@ class pushViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
         query.findObjectsInBackgroundWithBlock { (results, error) in
             self.tableView?.mj_header.endRefreshing()
             
+    
             
             self.dataArray.removeAllObjects()
             self.dataArray.addObjectsFromArray(results)
@@ -94,9 +100,9 @@ class pushViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
     
 
     func setNavigationBar(){
-        let navigationView = UIView(frame:CGRectMake(0,-20,SCREEN_WIDTH,65))
+        navigationView = UIView(frame: CGRectMake(0,-20,SCREEN_WIDTH,65))
         navigationView.backgroundColor = UIColor.whiteColor()
-        self.navigationController?.navigationBar .addSubview(navigationView)
+        self.navigationController?.navigationBar.addSubview(navigationView)
         
         
         let addBookButton = UIButton(frame:CGRectMake(20,20,SCREEN_WIDTH,45))
@@ -153,6 +159,14 @@ class pushViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
         return 88
     }
     
-    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.tableView?.deselectRowAtIndexPath(indexPath, animated: true)
+        let vc = BookDetailViewController()
+        vc.BookObject = self.dataArray[indexPath.row] as? AVObject
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+        
+    }
     
 }
