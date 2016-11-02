@@ -9,7 +9,7 @@
 import UIKit
 
 @objc protocol BookTitleDelegate{
-    optional func choiceCover()
+    @objc optional func choiceCover()
 }
 
 
@@ -32,14 +32,14 @@ class BookTitleView: UIView {
         super.init(frame:frame)
         
         
-        self.BookCover = UIButton(frame:CGRectMake(10,0,110,141))
-        self.BookCover?.setImage(UIImage(named: "Cover"), forState: .Normal)
+        self.BookCover = UIButton(frame:CGRect(x: 10,y: 0,width: 110,height: 141))
+        self.BookCover?.setImage(UIImage(named: "Cover"), for: UIControlState())
         self.addSubview(self.BookCover!)
-        self.BookCover?.addTarget(self, action: #selector(BookTitleDelegate.choiceCover), forControlEvents: .TouchUpInside)
+        self.BookCover?.addTarget(self, action: #selector(BookTitleDelegate.choiceCover), for: .touchUpInside)
         
         
-        self.BookName = JVFloatLabeledTextField(frame:CGRectMake(128,8+40,SCREEN_WIDTH-128-15,30))
-        self.BookEditor = JVFloatLabeledTextField(frame:CGRectMake(128,8+70+40,SCREEN_WIDTH-128-15,30))
+        self.BookName = JVFloatLabeledTextField(frame:CGRect(x: 128,y: 8+40,width: SCREEN_WIDTH-128-15,height: 30))
+        self.BookEditor = JVFloatLabeledTextField(frame:CGRect(x: 128,y: 8+70+40,width: SCREEN_WIDTH-128-15,height: 30))
         
         self.BookName?.placeholder = "书名"
         self.BookEditor?.placeholder = "作者"

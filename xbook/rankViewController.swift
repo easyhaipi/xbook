@@ -14,23 +14,23 @@ class rankViewController: UIViewController {
         super.viewDidLoad()
 
         
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.white
         
 //        AVUser.logOut()
         
-        if AVUser.currentUser()==nil {
+        if AVUser.current()==nil {
             let storyBoard = UIStoryboard(name: "Login",bundle: nil)
-            let LoginVc = storyBoard.instantiateViewControllerWithIdentifier("Loginin")
-            self.presentViewController(LoginVc, animated: true, completion: {
+            let LoginVc = storyBoard.instantiateViewController(withIdentifier: "Loginin")
+            self.present(LoginVc, animated: true, completion: {
                 
             })
         }
         
         
-        let label = UILabel(frame:CGRectMake(0,0,300,30))
-        label.textColor = UIColor.blackColor()
+        let label = UILabel(frame:CGRect(x: 0,y: 0,width: 300,height: 30))
+        label.textColor = UIColor.black
         label.center = self.view.center
-        label.textAlignment = NSTextAlignment.Center
+        label.textAlignment = NSTextAlignment.center
         label.adjustsFontSizeToFitWidth = true
         label.text = "哈哈哈哈"
         label.font = UIFont(name:MY_FONT,size: 14)

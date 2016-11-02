@@ -1322,13 +1322,16 @@
 				TargetAttributes = {
 					8A404E231D24B91A001EDA20 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 					};
 					8A404E371D24B91B001EDA20 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 						TestTargetID = 8A404E231D24B91A001EDA20;
 					};
 					8A404E421D24B91B001EDA20 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 						TestTargetID = 8A404E231D24B91A001EDA20;
 					};
 				};
@@ -1765,6 +1768,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.taobaichi.fanjiaoshou.xbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = /Users/easy_qingsong163com/Documents/myGitHub/xbook/xbook/bridging.h;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1796,6 +1800,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.taobaichi.fanjiaoshou.xbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = /Users/easy_qingsong163com/Documents/myGitHub/xbook/xbook/bridging.h;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -1807,6 +1812,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.taobaichi.fanjiaoshou.xbookTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/xbook.app/xbook";
 			};
 			name = Debug;
@@ -1819,6 +1825,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.taobaichi.fanjiaoshou.xbookTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/xbook.app/xbook";
 			};
 			name = Release;
@@ -1830,6 +1837,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.taobaichi.fanjiaoshou.xbookUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = xbook;
 			};
 			name = Debug;
@@ -1841,6 +1849,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.taobaichi.fanjiaoshou.xbookUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = xbook;
 			};
 			name = Release;

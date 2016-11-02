@@ -1,4 +1,3 @@
-#import <AVOSCloud/AVOSCloud.h>
 #import "JVFloatLabeledTextField.h"
 #import "JVFloatLabeledTextView.h"
 #import "VPImageCropperViewController.h"
@@ -18,3 +17,4 @@
 //#import <ShareSDKUI/SSUIShareActionSheetStyle.h>
 #import "InputView.h"
 #import "SWTableViewCell.h"
+#import <AVOSCloud/AVOSCloud.h>

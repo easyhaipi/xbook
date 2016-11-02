@@ -10,7 +10,7 @@ import UIKit
 
 
 protocol PhotoPickerDelegate{
-    func getImageFromPicker(image:UIImage)
+    func getImageFromPicker(_ image:UIImage)
 }
 
 
@@ -27,8 +27,8 @@ class PhotoPickerViewController: UIViewController,UINavigationControllerDelegate
     init(){
         super.init(nibName:nil,bundle:nil)
         
-        self.modalPresentationStyle = .OverFullScreen
-        self.view.backgroundColor = UIColor.clearColor()
+        self.modalPresentationStyle = .overFullScreen
+        self.view.backgroundColor = UIColor.clear
         
         
         self.picker = UIImagePickerController()
@@ -59,26 +59,26 @@ class PhotoPickerViewController: UIViewController,UINavigationControllerDelegate
     }
     
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         if(self.alert == nil)
         {
-            self.alert = UIAlertController(title: nil,message: nil,preferredStyle: .ActionSheet)
+            self.alert = UIAlertController(title: nil,message: nil,preferredStyle: .actionSheet)
         
-            self.alert?.addAction(UIAlertAction(title: "从相册选择",style: .Default,handler: {(action) -> Void in
+            self.alert?.addAction(UIAlertAction(title: "从相册选择",style: .default,handler: {(action) -> Void in
                self.localPhoto()
             
             }))
-            self.alert?.addAction(UIAlertAction(title: "打开相机",style: .Default,handler: {(action) -> Void in
+            self.alert?.addAction(UIAlertAction(title: "打开相机",style: .default,handler: {(action) -> Void in
                 self.takePhoto()
                 
             }))
-            self.alert?.addAction(UIAlertAction(title: "取消",style: .Cancel,handler: {(action) -> Void in
+            self.alert?.addAction(UIAlertAction(title: "取消",style: .cancel,handler: {(action) -> Void in
                 
                 
             }))
             
             
-            self.presentViewController(self.alert!, animated: true, completion: { 
+            self.present(self.alert!, animated: true, completion: { 
                 
             })
         }
@@ -87,24 +87,24 @@ class PhotoPickerViewController: UIViewController,UINavigationControllerDelegate
     
     
     func takePhoto() {
-        if UIImagePickerController.isSourceTypeAvailable(.Camera) {//有照相机
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {//有照相机
             
-            self.picker.sourceType = .Camera
-            self.presentViewController(self.picker, animated: true, completion: {
+            self.picker.sourceType = .camera
+            self.present(self.picker, animated: true, completion: {
                 
             })
 
             
         }else{
             
-          let  alertView  = UIAlertController(title: "此机型无相机",message: nil,preferredStyle: .Alert)
-            alertView.addAction(UIAlertAction(title: "关闭",style: .Cancel,handler: {(action) -> Void in
+          let  alertView  = UIAlertController(title: "此机型无相机",message: nil,preferredStyle: .alert)
+            alertView.addAction(UIAlertAction(title: "关闭",style: .cancel,handler: {(action) -> Void in
                 
-                self.dismissViewControllerAnimated(true, completion: { 
+                self.dismiss(animated: true, completion: { 
                     
                 })
             }))
-            self.presentViewController(alertView, animated: true, completion: { 
+            self.present(alertView, animated: true, completion: { 
              
             })
         }
@@ -112,26 +112,26 @@ class PhotoPickerViewController: UIViewController,UINavigationControllerDelegate
     }
     
     func localPhoto() {
-        self.picker.sourceType = .PhotoLibrary
+        self.picker.sourceType = .photoLibrary
 
-        self.presentViewController(self.picker, animated: true, completion: {
+        self.present(self.picker, animated: true, completion: {
             
         })
     }
     
     
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        self.picker.dismissViewControllerAnimated(true) { 
-            self.dismissViewControllerAnimated(true, completion: { 
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.picker.dismiss(animated: true) { 
+            self.dismiss(animated: true, completion: { 
                 
             })
         }
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
       
-        self.picker.dismissViewControllerAnimated(true) {
-            self.dismissViewControllerAnimated(true, completion: { 
+        self.picker.dismiss(animated: true) {
+            self.dismiss(animated: true, completion: { 
                  self.delegate?.getImageFromPicker(image)
             })
         }

@@ -27,31 +27,31 @@ class BookDetailView: UIView {
         
         self.VIEW_WIDTH = frame.size.width
         self.VIEW_HEIGHT = frame.size.height
-        self.backgroundColor = UIColor.whiteColor()
+        self.backgroundColor = UIColor.white
         
-        self.cover = UIImageView(frame: CGRectMake(8,8,(VIEW_HEIGHT - 16)/1.273,VIEW_HEIGHT-16))
+        self.cover = UIImageView(frame: CGRect(x: 8,y: 8,width: (VIEW_HEIGHT - 16)/1.273,height: VIEW_HEIGHT-16))
         self.addSubview(self.cover!)
         
-        self.BookName = UILabel(frame: CGRectMake((VIEW_HEIGHT - 16)/1.273+16,8,VIEW_WIDTH - (VIEW_HEIGHT - 16)/1.273 - 16,VIEW_HEIGHT/4))
+        self.BookName = UILabel(frame: CGRect(x: (VIEW_HEIGHT - 16)/1.273+16,y: 8,width: VIEW_WIDTH - (VIEW_HEIGHT - 16)/1.273 - 16,height: VIEW_HEIGHT/4))
         self.BookName?.font = UIFont(name: MY_FONT, size: 18)
         self.addSubview(self.BookName!)
         
-        self.Editor = UILabel(frame: CGRectMake((VIEW_HEIGHT - 16)/1.273+16,8+VIEW_HEIGHT/4,VIEW_WIDTH - (VIEW_HEIGHT - 16)/1.273 - 16,VIEW_HEIGHT/4))
+        self.Editor = UILabel(frame: CGRect(x: (VIEW_HEIGHT - 16)/1.273+16,y: 8+VIEW_HEIGHT/4,width: VIEW_WIDTH - (VIEW_HEIGHT - 16)/1.273 - 16,height: VIEW_HEIGHT/4))
         self.Editor?.font = UIFont(name: MY_FONT, size: 18)
         self.addSubview(self.Editor!)
         
         
-        self.userName = UILabel(frame: CGRectMake((VIEW_HEIGHT - 16)/1.273+16,24+VIEW_HEIGHT/4+VIEW_HEIGHT/6,VIEW_WIDTH - (VIEW_HEIGHT - 16)/1.273 - 16,VIEW_HEIGHT/6))
+        self.userName = UILabel(frame: CGRect(x: (VIEW_HEIGHT - 16)/1.273+16,y: 24+VIEW_HEIGHT/4+VIEW_HEIGHT/6,width: VIEW_WIDTH - (VIEW_HEIGHT - 16)/1.273 - 16,height: VIEW_HEIGHT/6))
         self.userName?.font = UIFont(name: MY_FONT, size: 13)
         self.userName?.textColor = RGB(35, g: 87, b: 139)
         self.addSubview(self.userName!)
         
-        self.date = UILabel(frame: CGRectMake((VIEW_HEIGHT - 16)/1.273+16,16+VIEW_HEIGHT/4+VIEW_HEIGHT/6*2,80,VIEW_HEIGHT/6))
+        self.date = UILabel(frame: CGRect(x: (VIEW_HEIGHT - 16)/1.273+16,y: 16+VIEW_HEIGHT/4+VIEW_HEIGHT/6*2,width: 80,height: VIEW_HEIGHT/6))
         self.date?.font = UIFont(name: MY_FONT, size: 13)
-        self.date?.textColor = UIColor.grayColor()
+        self.date?.textColor = UIColor.gray
         self.addSubview(self.date!)
         
-        self.score = LDXScore(frame: CGRectMake((VIEW_HEIGHT - 16)/1.273+16+80,16+VIEW_HEIGHT/4+VIEW_HEIGHT/6*2,80,VIEW_HEIGHT/6))
+        self.score = LDXScore(frame: CGRect(x: (VIEW_HEIGHT - 16)/1.273+16+80,y: 16+VIEW_HEIGHT/4+VIEW_HEIGHT/6*2,width: 80,height: VIEW_HEIGHT/6))
         self.score?.isSelect = false
         self.score?.normalImg = UIImage(named: "btn_star_evaluation_normal")
         self.score?.highlightImg = UIImage(named: "btn_star_evaluation_press")
@@ -59,8 +59,8 @@ class BookDetailView: UIView {
         self.score?.show_star = 5
         self.addSubview(self.score!)
         
-        self.more = UILabel(frame: CGRectMake((VIEW_HEIGHT - 16)/1.273+16,8+VIEW_HEIGHT/4+VIEW_HEIGHT/6*3,VIEW_WIDTH - (VIEW_HEIGHT - 16)/1.273 - 16,VIEW_HEIGHT/6))
-        self.more?.textColor = UIColor.grayColor()
+        self.more = UILabel(frame: CGRect(x: (VIEW_HEIGHT - 16)/1.273+16,y: 8+VIEW_HEIGHT/4+VIEW_HEIGHT/6*3,width: VIEW_WIDTH - (VIEW_HEIGHT - 16)/1.273 - 16,height: VIEW_HEIGHT/6))
+        self.more?.textColor = UIColor.gray
         self.more?.font = UIFont(name: MY_FONT, size: 13)
         self.addSubview(self.more!)
         
@@ -71,14 +71,14 @@ class BookDetailView: UIView {
     }
     
     
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
      
         let context = UIGraphicsGetCurrentContext()
-        CGContextSetLineWidth(context, 0.5)
-        CGContextSetRGBStrokeColor(context, 231/255, 231/255, 231/255, 1)
-        CGContextMoveToPoint(context, 8, VIEW_HEIGHT-2)
-        CGContextAddLineToPoint(context, VIEW_WIDTH - 8, VIEW_HEIGHT - 2)
-        CGContextStrokePath(context)
+        context?.setLineWidth(0.5)
+        context?.setStrokeColor(red: 231/255, green: 231/255, blue: 231/255, alpha: 1)
+        context?.move(to: CGPoint(x: 8, y: VIEW_HEIGHT-2))
+        context?.addLine(to: CGPoint(x: VIEW_WIDTH - 8, y: VIEW_HEIGHT - 2))
+        context?.strokePath()
         
     }
    

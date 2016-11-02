@@ -15,29 +15,31 @@ class RegisterViewController: UIViewController {
     @IBOutlet var password: UITextField!
     
     @IBOutlet var topLayoutConstraint: NSLayoutConstraint!
-    @IBAction func registerAction(sender: AnyObject) {
+    @IBAction func registerAction(_ sender: AnyObject) {
         let user = AVUser()
         
         user.username = self.username.text
         user.password = self.password.text
         user.email = self.email.text
-        user.signUpInBackgroundWithBlock { (success, error) in
+        user.signUpInBackground { (success, error) in
             if(success)
             {
                 
                 ProgressHUD.showSuccess("注册成功，请验证邮箱")
                 
-                self.dismissViewControllerAnimated(true) {
+                
+                
+                self.dismiss(animated: true) {
                     
                 }
             }else{
-                if error.code == 125{
+                if error?._code == 125{
                     ProgressHUD.showError("邮箱不合法")
                     
-                }else if error.code == 203{
+                }else if error?._code == 203{
                     ProgressHUD.showError("该邮箱已经注册")
                     
-                }else if error.code == 202{
+                }else if error?._code == 202{
                     ProgressHUD.showError("用户名已经存在")
                     
                 }else {
@@ -48,9 +50,9 @@ class RegisterViewController: UIViewController {
             }
     }
     }
-    @IBAction func close(sender: AnyObject) {
+    @IBAction func close(_ sender: AnyObject) {
         
-        self.dismissViewControllerAnimated(true) { 
+        self.dismiss(animated: true) { 
             
         }
         
@@ -58,11 +60,11 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        XKeyBoard.registerKeyBoardHide(self)
-        XKeyBoard.registerKeyBoardShow(self)
+        XKeyBoard.registerHide(self)
+        XKeyBoard.registerShow(self)
         // Do any additional setup after loading the view.
         let gesture = UITapGestureRecognizer()
-        gesture.addTarget(self, action:Selector(hidKeyword()))
+        gesture.addTarget(self, action:#selector(RegisterViewController.hidKeyword))
         self.view.addGestureRecognizer(gesture)
         
     }
@@ -71,9 +73,9 @@ class RegisterViewController: UIViewController {
         self.password.resignFirstResponder()
         self.email.resignFirstResponder()
     }
-    func  keyboardWillShowNotification(notification:NSNotification)
+    func  keyboardWillShowNotification(_ notification:Notification)
     {
-        UIView.animateWithDuration(0.3, animations:{()->Void in
+        UIView.animate(withDuration: 0.3, animations:{()->Void in
             self.topLayoutConstraint.constant = -200
             self.view.layoutIfNeeded()
         })
@@ -81,9 +83,9 @@ class RegisterViewController: UIViewController {
         
     }
     
-    func  keyboardWillHideNotification(notification:NSNotification)
+    func  keyboardWillHideNotification(_ notification:Notification)
     {
-        UIView.animateWithDuration(0.3, animations:{()->Void in
+        UIView.animate(withDuration: 0.3, animations:{()->Void in
             self.topLayoutConstraint.constant = 8
             self.view.layoutIfNeeded()
         })

@@ -9,7 +9,7 @@
 import UIKit
 
 
-typealias Push_TitleCallBack = (Title:String)->Void
+typealias Push_TitleCallBack = (_ Title:String)->Void
 
 class Push_TitleViewController: UIViewController {
 
@@ -23,10 +23,10 @@ class Push_TitleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = UIColor .whiteColor()
+        self.view.backgroundColor = UIColor.white
         
-        self.textField = UITextField(frame:CGRectMake(15,60,SCREEN_WIDTH - 30,30))
-        self.textField?.borderStyle = .RoundedRect
+        self.textField = UITextField(frame:CGRect(x: 15,y: 60,width: SCREEN_WIDTH - 30,height: 30))
+        self.textField?.borderStyle = .roundedRect
         self.textField?.placeholder = "书评标题"
         self.textField?.font = UIFont(name:MY_FONT,size: 12)
         self.view.addSubview(self.textField!)
@@ -44,14 +44,14 @@ class Push_TitleViewController: UIViewController {
     func ok()
     {
         
-        self.callBack?(Title:self.textField!.text!)
-        self.dismissViewControllerAnimated(true) {
+        self.callBack?(self.textField!.text!)
+        self.dismiss(animated: true) {
             
         }
     }
     func close()
     {
-        self.dismissViewControllerAnimated(true) { 
+        self.dismiss(animated: true) { 
             
         }
     }

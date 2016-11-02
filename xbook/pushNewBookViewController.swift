@@ -39,14 +39,14 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
         
         super.viewDidLoad()
 
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.white
         
-        self.bookTitleView = BookTitleView(frame:CGRectMake(0,40,SCREEN_WIDTH,160))
+        self.bookTitleView = BookTitleView(frame:CGRect(x: 0,y: 40,width: SCREEN_WIDTH,height: 160))
         self.bookTitleView?.delegate = self
         self.view.addSubview(self.bookTitleView!)
         
         
-        self.tableView = UITableView(frame: CGRectMake(0, 200, SCREEN_WIDTH, SCREEN_HEIGHT - 200),style:.Grouped)
+        self.tableView = UITableView(frame: CGRect(x: 0, y: 200, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - 200),style:.grouped)
         
         self.tableView?.tableFooterView = UIView()
         
@@ -54,7 +54,7 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
         self.tableView?.dataSource = self
         
         
-        self.tableView?.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "cell")
+        self.tableView?.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "cell")
         self.tableView?.backgroundColor = UIColor(colorLiteralRed: 250/255,green:250/255,blue:250/255,alpha:1)
         
         
@@ -64,7 +64,7 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
         self.titleArray = ["标题","评分","分类","书评"]
         
         
-        self.score = LDXScore(frame:CGRectMake(100,10,100,22))
+        self.score = LDXScore(frame:CGRect(x: 100,y: 10,width: 100,height: 22))
         self.score?.isSelect = true
         self.score?.normalImg = UIImage(named: "btn_star_evaluation_normal")
         self.score?.highlightImg = UIImage(named: "btn_star_evaluation_press")
@@ -77,7 +77,7 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
         /**
          注册通知
          */
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(pushNewBookViewController.pushCallBack(_:)), name: "pushCallBack", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(pushNewBookViewController.pushCallBack(_:)), name: NSNotification.Name(rawValue: "pushCallBack"), object: nil)
     }
     
     
@@ -89,8 +89,8 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
             self.bookTitleView?.BookName?.text = self.BookObject!["BookName"] as? String
             self.bookTitleView?.BookEditor?.text = self.BookObject!["BookEditor"] as? String
             let coverFile = self.BookObject!["cover"] as? AVFile
-            coverFile?.getDataInBackgroundWithBlock({ (data, error) -> Void in
-                self.bookTitleView?.BookCover?.setImage(UIImage(data: data), forState: .Normal)
+            coverFile?.getDataInBackground({ (data, error) -> Void in
+                self.bookTitleView?.BookCover?.setImage(UIImage(data: data!), for: UIControlState())
             })
             
             self.book_title = (self.BookObject!["title"] as? String)!
@@ -108,9 +108,9 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
     /**
      pushCallBack
      */
-    func pushCallBack(notification:NSNotification){
-        let dict = notification.userInfo
-        if (String(dict!["success"]!)) == "true" {
+    func pushCallBack(_ notification:Notification){
+        let dict = (notification as NSNotification).userInfo
+        if (String(describing: dict!["success"]!)) == "true" {
           
             if self.fixType == "fix" {
                 
@@ -121,7 +121,7 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
             }
         
             
-            self.dismissViewControllerAnimated(true, completion: { () -> Void in
+            self.dismiss(animated: true, completion: { () -> Void in
                 
             })
         }else{
@@ -140,7 +140,7 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
         /**
          移除通知
          */
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     func choiceCover() {
         print("------选择封面")
@@ -149,18 +149,18 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
         
         let vc = PhotoPickerViewController()
         vc.delegate = self
-        self.presentViewController(vc, animated: true) { 
+        self.present(vc, animated: true) { 
             
         }
         
     }
     
     
-    func getImageFromPicker(image: UIImage) {
+    func getImageFromPicker(_ image: UIImage) {
         
-        let Crovc = VPImageCropperViewController(image: image,cropFrame: CGRectMake(0, 100, SCREEN_WIDTH, SCREEN_WIDTH*1.273),limitScaleRatio:3)
-        Crovc.delegate = self
-        self.presentViewController(Crovc, animated: true) { 
+        let Crovc = VPImageCropperViewController(image: image,cropFrame: CGRect(x: 0, y: 100, width: SCREEN_WIDTH, height: SCREEN_WIDTH*1.273),limitScaleRatio:3)
+        Crovc?.delegate = self
+        self.present(Crovc!, animated: true) { 
             
         }
         
@@ -169,7 +169,7 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
            }
     
     func close() {
-        self.dismissViewControllerAnimated(true) { 
+        self.dismiss(animated: true) { 
             
         }
     }
@@ -184,21 +184,21 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
             "type":self.type,
             "detailType":self.detailType,
             "description":self.des_description,
-            ]
+            ] as [String : Any]
             ProgressHUD.show("")
         
       
         if self.fixType == "fix" {
-            pushBook.pushBookInBack(dict, object: self.BookObject!)
+            pushBook.pushBookInBack(dict as NSDictionary, object: self.BookObject!)
         }else{
             
             let object = AVObject(className: "Book")
-            pushBook.pushBookInBack(dict, object: object)
+            pushBook.pushBookInBack(dict as NSDictionary, object: object!)
         }
 
        
 
-        self.dismissViewControllerAnimated(true) {
+        self.dismiss(animated: true) {
             
         }
     }
@@ -208,31 +208,31 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
     
     //裁剪控制器的代理方法
     
-    func imageCropperDidCancel(cropperViewController: VPImageCropperViewController!) {
-        cropperViewController.dismissViewControllerAnimated(true) { 
+    func imageCropperDidCancel(_ cropperViewController: VPImageCropperViewController!) {
+        cropperViewController.dismiss(animated: true) { 
             
         }
         
     }
-    func imageCropper(cropperViewController: VPImageCropperViewController!, didFinished editedImage: UIImage!) {
-        self.bookTitleView?.BookCover?.setImage(editedImage, forState: .Normal)
-        cropperViewController.dismissViewControllerAnimated(true) {
+    func imageCropper(_ cropperViewController: VPImageCropperViewController!, didFinished editedImage: UIImage!) {
+        self.bookTitleView?.BookCover?.setImage(editedImage, for: UIControlState())
+        cropperViewController.dismiss(animated: true) {
             
         }
 
     }
     
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.titleArray.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style:.Value1 ,reuseIdentifier: "cell")
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style:.value1 ,reuseIdentifier: "cell")
 //        let cell1 = self.tableView?.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         
         for view in cell.contentView.subviews {
@@ -240,19 +240,19 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
         }
         
         
-        if(indexPath.row != 1)
+        if((indexPath as NSIndexPath).row != 1)
         {
-            cell.accessoryType = .DisclosureIndicator
+            cell.accessoryType = .disclosureIndicator
         }
         
-        cell.textLabel?.text = self.titleArray[indexPath.row]
+        cell.textLabel?.text = self.titleArray[(indexPath as NSIndexPath).row]
         cell.textLabel?.font = UIFont(name: MY_FONT,size: 15)
         
         
         cell.detailTextLabel?.font = UIFont(name: MY_FONT,size: 13)
 
         
-        var row = indexPath.row
+        var row = (indexPath as NSIndexPath).row
         if (self.showScore && row>=2) {
             row -= 1
         }
@@ -266,19 +266,19 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
             break
     
         case 4:
-            cell.accessoryType = .None
-            let commentView = UITextView(frame: CGRectMake(4,4, SCREEN_WIDTH-8, 80))
+            cell.accessoryType = .none
+            let commentView = UITextView(frame: CGRect(x: 4,y: 4, width: SCREEN_WIDTH-8, height: 80))
             
             commentView.text = self.des_description
             commentView.font = UIFont(name: MY_FONT,size: 13)
-            commentView.editable = false
+            commentView.isEditable = false
             cell.contentView.addSubview(commentView)
             break
         default:
             break
         }
        
-        if (self.showScore && indexPath.row == 2) {
+        if (self.showScore && (indexPath as NSIndexPath).row == 2) {
             cell.contentView .addSubview(self.score!)
             
         }
@@ -286,11 +286,11 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
     }
     
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
       
-            if showScore && indexPath.row >= 5 {
+            if showScore && (indexPath as NSIndexPath).row >= 5 {
                 return 88
-            }else if  !showScore && indexPath.row >= 4 {
+            }else if  !showScore && (indexPath as NSIndexPath).row >= 4 {
                 
                 return  88
             } else{
@@ -301,9 +301,9 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
     
     
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.tableView?.deselectRowAtIndexPath(indexPath, animated: true)
-        var row = indexPath.row
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView?.deselectRow(at: indexPath, animated: true)
+        var row = (indexPath as NSIndexPath).row
         if (self.showScore && row>=2) {
             row -= 1
         }
@@ -345,7 +345,7 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
             self.tableView?.reloadData()
         });
   
-        self.presentViewController(vc, animated: true) { 
+        self.present(vc, animated: true) { 
             
         }
         
@@ -360,16 +360,16 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
     {
        
         self.tableView?.beginUpdates()
-        let temIndexPaths = [NSIndexPath(forRow:2,inSection: 0)]
+        let temIndexPaths = [IndexPath(row:2,section: 0)]
         if self.showScore {
-            self.titleArray.removeAtIndex(2)
-            self.tableView?.deleteRowsAtIndexPaths(temIndexPaths, withRowAnimation: .Right)
+            self.titleArray.remove(at: 2)
+            self.tableView?.deleteRows(at: temIndexPaths, with: .right)
             
             
              self.showScore = false
         }else{
-            self.titleArray.insert("", atIndex: 2)
-            self.tableView?.insertRowsAtIndexPaths(temIndexPaths, withRowAnimation: .Left)
+            self.titleArray.insert("", at: 2)
+            self.tableView?.insertRows(at: temIndexPaths, with: .left)
             self.showScore = true
         }
         
@@ -392,10 +392,10 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
         let vc = Push_TypeViewController()
           GeneralFactory.addTitleViewWithTitle(vc)
         let btn1 = vc.view.viewWithTag(123) as?UIButton
-        btn1?.setTitleColor(RGB(38, g: 82, b: 67), forState: .Normal)
+        btn1?.setTitleColor(RGB(38, g: 82, b: 67), for: UIControlState())
         
         let btn2 = vc.view.viewWithTag(345) as?UIButton
-        btn2?.setTitleColor(RGB(38, g: 82, b: 67), forState: .Normal)
+        btn2?.setTitleColor(RGB(38, g: 82, b: 67), for: UIControlState())
         vc.type = self.type
         vc.detailType = self.detailType
         vc.callBlock = ({(type:String,detailType:String)->Void in
@@ -404,7 +404,7 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
             self.tableView?.reloadData()
         
         });
-        self.presentViewController(vc, animated: true) {
+        self.present(vc, animated: true) {
             
         }
     }
@@ -432,7 +432,7 @@ class pushNewBookViewController: UIViewController,BookTitleDelegate,PhotoPickerD
         });
         
 
-        self.presentViewController(vc, animated: true) {
+        self.present(vc, animated: true) {
             
         }
     }

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-typealias Push_DescriptionViewBlock = (description:String)->Void
+typealias Push_DescriptionViewBlock = (_ description:String)->Void
 
 
 class Push_DescriptionViewController: UIViewController {
@@ -20,19 +20,19 @@ class Push_DescriptionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      self.view.backgroundColor = UIColor.whiteColor()
+      self.view.backgroundColor = UIColor.white
         
-        self.textView = JVFloatLabeledTextView(frame: CGRectMake(8, 58, SCREEN_WIDTH-16, SCREEN_HEIGHT-58-16)
+        self.textView = JVFloatLabeledTextView(frame: CGRect(x: 8, y: 58, width: SCREEN_WIDTH-16, height: SCREEN_HEIGHT-58-16)
         )
         self.view.addSubview(self.textView!)
         
         self.textView?.placeholder = "---撰写详细的评价，吐槽"
-        self.view.tintColor = UIColor.grayColor()
+        self.view.tintColor = UIColor.gray
         self.textView?.becomeFirstResponder()
         
         self.textView?.font = UIFont(name: MY_FONT,size: 13)
-        XKeyBoard.registerKeyBoardHide(self)
-        XKeyBoard.registerKeyBoardShow(self)
+        XKeyBoard.registerHide(self)
+        XKeyBoard.registerShow(self)
         
         
     }
@@ -43,27 +43,27 @@ class Push_DescriptionViewController: UIViewController {
     }
     
 
-    func  keyboardWillShowNotification(notification:NSNotification)
+    func  keyboardWillShowNotification(_ notification:Notification)
     {
-        let rect = XKeyBoard.returnKeyBoardWindow(notification)
+        let rect = XKeyBoard.returnWindow(notification)
         self.textView?.contentInset = UIEdgeInsetsMake(0, 0, rect.size.height,0)
         
     }
     
-    func  keyboardWillHideNotification(notification:NSNotification)
+    func  keyboardWillHideNotification(_ notification:Notification)
     {
      self.textView?.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
     }
     func ok()
     {
-        self.callBlock!(description:(self.textView?.text)!)
-        self.dismissViewControllerAnimated(true) {
+        self.callBlock!((self.textView?.text)!)
+        self.dismiss(animated: true) {
             
         }
     }
     func close()
     {
-        self.dismissViewControllerAnimated(true) {
+        self.dismiss(animated: true) {
             
         }
     }

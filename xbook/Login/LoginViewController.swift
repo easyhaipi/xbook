@@ -13,27 +13,28 @@ class LoginViewController: UIViewController ,UIGestureRecognizerDelegate{
 
     @IBOutlet var username: UITextField!
     @IBOutlet var password: UITextField!
-    @IBAction func login(sender: AnyObject) {
+    @IBAction func login(_ sender: AnyObject) {
         
         
-        AVUser.logInWithUsernameInBackground(self.username.text, password: self.password.text){(user,error)->Void in
+   
+        AVUser.logInWithUsername(inBackground: self.username.text, password: self.password.text){(user,error)->Void in
         
             if error==nil{
                 ProgressHUD.showSuccess("登录成功")
-                self.dismissViewControllerAnimated(true, completion: { 
+                self.dismiss(animated: true, completion: { 
                     
                 })
             }else{
-                if error.code == 210{
+                if error?._code == 210{
                     ProgressHUD.showError("用户名密码不匹配")
                     
-                }else if error.code == 211{
+                }else if error?._code == 211{
                     ProgressHUD.showError("不存在该用户")
                     
-                }else if error.code == 216{
+                }else if error?._code == 216{
                     ProgressHUD.showError("未验证邮箱")
                     
-                }else if error.code==1{
+                }else if error?._code==1{
                     ProgressHUD.showError("操作频繁")
                     
                 }else{
@@ -47,8 +48,8 @@ class LoginViewController: UIViewController ,UIGestureRecognizerDelegate{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        XKeyBoard.registerKeyBoardHide(self)
-        XKeyBoard.registerKeyBoardShow(self)
+        XKeyBoard.registerHide(self)
+        XKeyBoard.registerShow(self)
     
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.hidKeyword))
      
@@ -62,7 +63,7 @@ class LoginViewController: UIViewController ,UIGestureRecognizerDelegate{
         self.password.resignFirstResponder()
     }
     
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
       
         return touch.view == gestureRecognizer.view
     
@@ -73,9 +74,9 @@ class LoginViewController: UIViewController ,UIGestureRecognizerDelegate{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func  keyboardWillShowNotification(notification:NSNotification)
+    func  keyboardWillShowNotification(_ notification:Notification)
     {
-        UIView.animateWithDuration(0.3, animations:{()->Void in
+        UIView.animate(withDuration: 0.3, animations:{()->Void in
         self.topLayoutConstraint.constant = -200
             self.view.layoutIfNeeded()
         })
@@ -83,9 +84,9 @@ class LoginViewController: UIViewController ,UIGestureRecognizerDelegate{
         
     }
     
-    func  keyboardWillHideNotification(notification:NSNotification)
+    func  keyboardWillHideNotification(_ notification:Notification)
     {
-        UIView.animateWithDuration(0.3, animations:{()->Void in
+        UIView.animate(withDuration: 0.3, animations:{()->Void in
             self.topLayoutConstraint.constant = 8
             self.view.layoutIfNeeded()
         })

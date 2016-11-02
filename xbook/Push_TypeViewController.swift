@@ -9,7 +9,7 @@
 import UIKit
 
 
-typealias Push_TypeViewControllerBlock = (type:String,detailType:String)->Void
+typealias Push_TypeViewControllerBlock = (_ type:String,_ detailType:String)->Void
 
 class Push_TypeViewController: UIViewController,IGLDropDownMenuDelegate {
 
@@ -53,13 +53,13 @@ class Push_TypeViewController: UIViewController,IGLDropDownMenuDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = RGB(232, g: 231, b: 231)
-        let segmentLabel = UILabel(frame:CGRectMake((SCREEN_WIDTH-300)/2,20,300,20))
+        let segmentLabel = UILabel(frame:CGRect(x: (SCREEN_WIDTH-300)/2,y: 20,width: 300,height: 20))
         segmentLabel.font = UIFont(name: MY_FONT,size: 12)
         segmentLabel.text = "请选择分类"
-        segmentLabel.shadowOffset = CGSizeMake(0, 1)
-        segmentLabel.shadowColor = UIColor.whiteColor()
+        segmentLabel.shadowOffset = CGSize(width: 0, height: 1)
+        segmentLabel.shadowColor = UIColor.white
         segmentLabel.textColor = RGB(82, g: 113, b: 113)
-        segmentLabel.textAlignment = .Center
+        segmentLabel.textAlignment = .center
         self.view.addSubview(segmentLabel)
         
         
@@ -86,10 +86,10 @@ class Push_TypeViewController: UIViewController,IGLDropDownMenuDelegate {
             ["image":"aperture","title":"生活","font":MY_FONT]
             
         ]
-        self.segmentController1 = AKSegmentedControl(frame:CGRectMake(10,60,SCREEN_WIDTH-20,37))
-        self.segmentController1?.initButtonWithTitleandImage(buttonArray)
+        self.segmentController1 = AKSegmentedControl(frame:CGRect(x: 10,y: 60,width: SCREEN_WIDTH-20,height: 37))
+        self.segmentController1?.initButton(withTitleandImage: buttonArray)
         self.view.addSubview(self.segmentController1!)
-        self.segmentController1?.addTarget(self, action: #selector(Push_TypeViewController.segmentControllerAction), forControlEvents: .ValueChanged)
+        self.segmentController1?.addTarget(self, action: #selector(Push_TypeViewController.segmentControllerAction), for: .valueChanged)
         
         let buttonArray2 = [
             ["image":"atom","title":"经管","font":MY_FONT],
@@ -97,10 +97,10 @@ class Push_TypeViewController: UIViewController,IGLDropDownMenuDelegate {
             ["image":"fire element","title":"网络流行","font":MY_FONT]
             
         ]
-        self.segmentController2 = AKSegmentedControl(frame:CGRectMake(10,110,SCREEN_WIDTH-20,37))
-        self.segmentController2?.initButtonWithTitleandImage(buttonArray2)
+        self.segmentController2 = AKSegmentedControl(frame:CGRect(x: 10,y: 110,width: SCREEN_WIDTH-20,height: 37))
+        self.segmentController2?.initButton(withTitleandImage: buttonArray2)
         self.view.addSubview(self.segmentController2!)
-       self.segmentController2?.addTarget(self, action: #selector(Push_TypeViewController.segmentControllerAction), forControlEvents: .ValueChanged)
+       self.segmentController2?.addTarget(self, action: #selector(Push_TypeViewController.segmentControllerAction), for: .valueChanged)
         
     }
     
@@ -110,19 +110,19 @@ class Push_TypeViewController: UIViewController,IGLDropDownMenuDelegate {
   
      */
     
-    func segmentControllerAction(segment:AKSegmentedControl) {
-        var index = segment.selectedIndexes.firstIndex;
+    func segmentControllerAction(_ segment:AKSegmentedControl) {
+        var index = segment.selectedIndexes.first;
         print(index)
         
         
-        self.type = ((segment.buttonsArray[index] as?UIButton)?.currentTitle)!
+        self.type = ((segment.buttonsArray[index!] as?UIButton)?.currentTitle)!
         
         
         if segment==self.segmentController1 {
             self.segmentController2?.setSelectedIndex(3)
         }else{
              self.segmentController1?.setSelectedIndex(3)
-            index += 3
+            index = index!+3
         }
         
         
@@ -135,28 +135,31 @@ class Push_TypeViewController: UIViewController,IGLDropDownMenuDelegate {
         }
         
         
-        switch (index){
+        
+        if let indexTemp = index{
+        switch indexTemp {
         case 0:
-            self.createDropMenu(self.literatureArray1, array2: self.literatureArray2)
+             self.createDropMenu(self.literatureArray1, array2: self.literatureArray2)
             break
         case 1:
-            self.createDropMenu(self.humanitiesArray1, array2: self.humanitiesArray2)
+        self.createDropMenu(self.humanitiesArray1, array2: self.humanitiesArray2)
             break
         case 2:
-            self.createDropMenu(self.livelihoodArray1, array2: self.livelihoodArray2)
+        self.createDropMenu(self.livelihoodArray1, array2: self.livelihoodArray2)
             break
         case 3:
-            self.createDropMenu(self.economiesArray1, array2: self.economiesArray2)
+        self.createDropMenu(self.economiesArray1, array2: self.economiesArray2)
             break
         case 4:
-            self.createDropMenu(self.technologyArray1, array2: self.technologyArray2)
+        self.createDropMenu(self.technologyArray1, array2: self.technologyArray2)
             break
         case 5:
-            self.createDropMenu(self.NetworkArray1, array2: self.NetworkArray2)
+        self.createDropMenu(self.NetworkArray1, array2: self.NetworkArray2)
             break
         default:
-            break
-            
+           break
+        }
+        
         }
     }
     /**
@@ -245,13 +248,13 @@ class Push_TypeViewController: UIViewController,IGLDropDownMenuDelegate {
     /**
      初始化dropMenu
      */
-    func createDropMenu(array1:Array<NSDictionary>,array2:Array<NSDictionary>) {
+    func createDropMenu(_ array1:Array<NSDictionary>,array2:Array<NSDictionary>) {
         let drowMenuItem1 = NSMutableArray()
         for i in 0 ..< array1.count {
             let dict = array1[i]
             let item = IGLDropDownItem()
             item.text = dict["title"] as?String
-            drowMenuItem1.addObject(item)
+            drowMenuItem1.add(item)
             
         }
         let drowMenuItem2 = NSMutableArray()
@@ -259,7 +262,7 @@ class Push_TypeViewController: UIViewController,IGLDropDownMenuDelegate {
             let dict = array2[i]
             let item = IGLDropDownItem()
             item.text = dict["title"] as?String
-            drowMenuItem2.addObject(item)
+            drowMenuItem2.add(item)
             
         }
         
@@ -270,11 +273,11 @@ class Push_TypeViewController: UIViewController,IGLDropDownMenuDelegate {
         self.dropDownMenu1?.menuButton.textLabel.textColor = RGB(30, g: 82, b: 67)
         self.dropDownMenu1?.paddingLeft = 15
         self.dropDownMenu1?.delegate = self
-        self.dropDownMenu1?.type = .Stack
+        self.dropDownMenu1?.type = .stack
         self.dropDownMenu1?.itemAnimationDelay = 0.1
         self.dropDownMenu1?.gutterY = 5
         self.dropDownMenu1?.dropDownItems = drowMenuItem1 as[AnyObject]
-        self.dropDownMenu1?.frame = CGRectMake(20, 150, SCREEN_WIDTH/2-30, (SCREEN_HEIGHT-200)/7)
+        self.dropDownMenu1?.frame = CGRect(x: 20, y: 150, width: SCREEN_WIDTH/2-30, height: (SCREEN_HEIGHT-200)/7)
         self.view.addSubview(self.dropDownMenu1!)
         self.dropDownMenu1?.reloadView()
         
@@ -287,18 +290,18 @@ class Push_TypeViewController: UIViewController,IGLDropDownMenuDelegate {
         self.dropDownMenu2?.menuButton.textLabel.textColor = RGB(38, g: 82, b: 67)
         self.dropDownMenu2?.paddingLeft = 15
         self.dropDownMenu2?.delegate = self
-        self.dropDownMenu2?.type = .Stack
+        self.dropDownMenu2?.type = .stack
         self.dropDownMenu2?.itemAnimationDelay = 0.1
         self.dropDownMenu2?.gutterY = 5
         self.dropDownMenu2?.dropDownItems = drowMenuItem2 as [AnyObject]
-        self.dropDownMenu2?.frame = CGRectMake(SCREEN_WIDTH/2+10, 150, SCREEN_WIDTH/2-30, (SCREEN_HEIGHT-200)/7)
+        self.dropDownMenu2?.frame = CGRect(x: SCREEN_WIDTH/2+10, y: 150, width: SCREEN_WIDTH/2-30, height: (SCREEN_HEIGHT-200)/7)
         self.view.addSubview(self.dropDownMenu2!)
         self.dropDownMenu2?.reloadView()
     }
     /**
      *  IGLDropDownMenuDelegate
      */
-    func dropDownMenu(dropDownMenu: IGLDropDownMenu!, selectedItemAtIndex index: Int) {
+    func dropDownMenu(_ dropDownMenu: IGLDropDownMenu!, selectedItemAt index: Int) {
         if dropDownMenu == self.dropDownMenu1 {
             let item = self.dropDownMenu1?.dropDownItems[index] as? IGLDropDownItem
             self.detailType = (item?.text)!
@@ -319,14 +322,14 @@ class Push_TypeViewController: UIViewController,IGLDropDownMenuDelegate {
     
     func ok()
     {
-        self.callBlock!(type: self.type,detailType: self.detailType)
-        self.dismissViewControllerAnimated(true) {
+        self.callBlock!(self.type,self.detailType)
+        self.dismiss(animated: true) {
             
         }
     }
     func close()
     {
-        self.dismissViewControllerAnimated(true) {
+        self.dismiss(animated: true) {
             
         }
     }

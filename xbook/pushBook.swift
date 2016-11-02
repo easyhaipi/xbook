@@ -11,7 +11,7 @@ import UIKit
 class pushBook: NSObject {
     
     
-    static func pushBookInBack(dict:NSDictionary,object:AVObject){
+    static func pushBookInBack(_ dict:NSDictionary,object:AVObject){
 
         object.setObject(dict["BookName"], forKey: "BookName")
         object.setObject(dict["BookEditor"], forKey: "BookEditor")
@@ -20,10 +20,10 @@ class pushBook: NSObject {
         object.setObject(dict["type"], forKey: "type")
         object.setObject(dict["detailType"], forKey: "detailType")
         object.setObject(dict["description"], forKey: "description")
-        object.setObject(AVUser.currentUser(), forKey: "user")
+        object.setObject(AVUser.current(), forKey: "user")
         let cover = dict["BookCover"] as? UIImage
         let coverFile = AVFile(data: UIImagePNGRepresentation(cover!))
-        coverFile.saveInBackgroundWithBlock { (success, error) -> Void in
+        coverFile?.saveInBackground { (success, error) -> Void in
             if success {
                 object.setObject(coverFile, forKey: "cover")
                 object.saveEventually({ (success, error) -> Void in
@@ -31,13 +31,13 @@ class pushBook: NSObject {
                         /**
                         *  调用通知
                         */
-                        NSNotificationCenter.defaultCenter().postNotificationName("pushCallBack", object: nil, userInfo: ["success":"true"])
+                        NotificationCenter.default.post(name: Notification.Name(rawValue: "pushCallBack"), object: nil, userInfo: ["success":"true"])
                     }else{
-                        NSNotificationCenter.defaultCenter().postNotificationName("pushCallBack", object: nil, userInfo: ["success":"false"])
+                        NotificationCenter.default.post(name: Notification.Name(rawValue: "pushCallBack"), object: nil, userInfo: ["success":"false"])
                     }
                 })
             }else{
-                        NSNotificationCenter.defaultCenter().postNotificationName("pushCallBack", object: nil, userInfo: ["success":"false"])
+                        NotificationCenter.default.post(name: Notification.Name(rawValue: "pushCallBack"), object: nil, userInfo: ["success":"false"])
             }
         }
     }
